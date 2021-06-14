@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'HeliosExtC';
+  src: local('HeliosExtC'), url(fonts/HeliosExtC/HeliosExtC.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'HeliosExtC';
+  font-weight: bold;
+  src: local('HeliosExtC'), url(fonts/HeliosExtC/HeliosExtC-Bold.otf) format('opentype');
+}
