@@ -12,6 +12,13 @@ const Button = styled.div`
   line-height: 24px;
   letter-spacing: 0.005em;
   color: #FFFFFF;
+
+  // lg type
+  ${props => props.type === 'lg' && {
+    padding: '14px 24px',
+    fontSize: '20px',
+    lineHeight: '28px'
+  }}
 `
 
 export {

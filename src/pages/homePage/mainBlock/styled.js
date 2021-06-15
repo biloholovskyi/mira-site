@@ -2,10 +2,20 @@ import styled from "styled-components";
 
 import top from './media/top.svg'
 import bottom from './media/bottom.svg'
+import bg from './media/bg.jpg'
 
 const Wrapper = styled.div`
   height: 1194px;
   position: relative;
+  background-image: url(${bg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  .container {
+    position: relative;
+    z-index: 100;
+  }
   
   &::before {
     content: '';
@@ -34,6 +44,64 @@ const Wrapper = styled.div`
   }
 `
 
+const Gradient = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(63.39% 63.39% at 61.22% 36.61%, rgba(18, 18, 18, 0) 0%, rgba(18, 18, 18, 0.8) 71.09%, rgba(18, 18, 18, 0.8) 100%);
+`
+
+const Title = styled.h1`
+  margin-top: 262px;
+  margin-bottom: 64px;
+  font-family: HeliosExtC, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 64px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+`
+
+const ButtonsBlock = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const WatchButton = styled.button`
+  cursor: pointer;
+  margin-left: 38px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  
+  img {
+    width: 24px;
+    max-width: 24px;
+    height: 24px;
+    object-fit: contain;
+    object-position: center;
+    margin-right: 12px;
+  }
+  
+  .text {
+    font-family: TT Interfaces, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.005em;
+    color: #FFFFFF;
+  }
+`
+
 export {
-  Wrapper
+  Wrapper,
+  Title,
+  Gradient,
+  ButtonsBlock,
+  WatchButton
 }

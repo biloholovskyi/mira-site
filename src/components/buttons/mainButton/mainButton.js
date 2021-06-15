@@ -2,9 +2,9 @@ import React from "react";
 
 import * as Style from './styled'
 
-const MainButton = ({text}) => {
+const MainButton = ({text, type}) => {
   return (
-    <Style.Button>{text}</Style.Button>
+    <Style.Button type={type ? type : null}>{text}</Style.Button>
   )
 }
 
