@@ -1,5 +1,6 @@
 import React from "react";
 
+import Header from "../header/header";
 import HomePage from "../../pages/homePage/homePage";
 
 import * as Style from './styled'
@@ -7,10 +8,7 @@ import * as Style from './styled'
 const App = () => {
   return (
     <>
-      <Style.Wrapper>
-        Дарим финансовую независимость каждому
-      </Style.Wrapper>
-      <HomePage/>
+      <Header/>
     </>
   )
 }
