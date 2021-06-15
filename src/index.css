@@ -5,10 +5,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #000;
-}
-
 @font-face {
   font-family: 'HeliosExtC';
   src: local('HeliosExtC'), url(fonts/HeliosExtC/HeliosExtC.otf) format('opentype');
