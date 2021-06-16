@@ -12,6 +12,35 @@ const TextAndImage = styled.div`
   .text {
     padding: 120px 0;
     
+    .fast {
+      display: flex;
+      align-items: center;
+      background: #212121;
+      border-radius: 1000px;
+      padding: 10px 18px;
+      width: max-content;
+      margin-bottom: 24px;
+      
+      img {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        object-fit: contain;
+        object-position: center;
+      }
+      
+      .fast-text {
+        font-family: TT Interfaces, sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.005em;
+        color: #FFFFFF;
+      }
+    }
+    
     .desc {
       font-family: TT Interfaces, sans-serif;
       font-style: normal;
@@ -85,6 +114,18 @@ const TextAndImage = styled.div`
           line-height: 32px;
           letter-spacing: 0.01em;
           color: #FFFFFF;
+        }
+      }
+
+      &-start {
+        justify-content: flex-start;
+        
+        .info-item {
+          margin-right: 26px;
+          
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
     }

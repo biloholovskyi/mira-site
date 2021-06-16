@@ -10,6 +10,8 @@ import * as Style from './styled'
 
 import imgDeposit from './media/image.png'
 import imgPhone from './media/image-phone.png'
+import fire from './media/fire.svg'
+import imgEstate from './media/image-estate.png'
 
 const HomePage = () => {
   return (
@@ -109,6 +111,55 @@ const HomePage = () => {
         </Container>
       </Style.TextAndImage>
       {/* /mira auto */}
+
+      {/* mira estate */}
+      <Style.TextAndImage>
+        <Container>
+          <Row>
+            <Col lg={6}>
+              <div className="text">
+                <div className="fast">
+                  <img src={fire} alt="fire"/>
+                  <div className="fast-text">Скоро</div>
+                </div>
+
+                <DefaultTitle
+                  text={'Mira estate'}
+                  style={{
+                    marginBottom: '40px'
+                  }}
+                />
+
+                <p className="desc">Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете
+                  приобрести квартиру/дом своей мечты за 35% от цены в течение всего 100 дней.</p>
+
+                <h4 className="small-title">Условия для активации Квартирной программы:</h4>
+
+                <div className="item">Личный уровень 8 (1 линия 5 человек, сумма личного депозита 10000 MRC</div>
+                <div className="item">1 линия 30000 MRC</div>
+                <div className="item">Cтруктура 500000 MRC</div>
+
+                <div className="info info-start">
+                  <div className="info-item">
+                    <div className="name">Первый взнос</div>
+                    <div className="value">35%</div>
+                  </div>
+
+                  <div className="info-item">
+                    <div className="name">Срок получения</div>
+                    <div className="value">100 дней</div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col lg={6}>
+              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+              <img src={imgEstate} alt="image" className="image image-first"/>
+            </Col>
+          </Row>
+        </Container>
+      </Style.TextAndImage>
+      {/* /mira estate */}
     </Style.Wrapper>
   )
 }
