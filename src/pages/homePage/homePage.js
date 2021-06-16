@@ -9,6 +9,7 @@ import MainButton from "../../components/buttons/mainButton/mainButton";
 import * as Style from './styled'
 
 import imgDeposit from './media/image.png'
+import imgPhone from './media/image-phone.png'
 
 const HomePage = () => {
   return (
@@ -61,6 +62,53 @@ const HomePage = () => {
         </Container>
       </Style.TextAndImage>
       {/* /mira deposit */}
+
+      {/* mira auto */}
+      <Style.TextAndImage bg={'#212121'}>
+        <Container>
+          <Row>
+            <Col lg={6} className={'col-relative'}>
+              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+              <img src={imgPhone} alt="image" className="image image-phone"/>
+            </Col>
+
+            <Col lg={6}>
+              <div className="text">
+                <DefaultTitle
+                  text={'Mira AUTO'}
+                  style={{
+                    marginBottom: '40px'
+                  }}
+                />
+
+                <p className="desc">Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести
+                  автомобиль за 35% от его розничной стоимости в течение 100 дней.</p>
+
+                <h4 className="small-title">Условия для активации Авто-программы:</h4>
+
+                <div className="item">Личный уровень 5 (1 линия 5 человек, сумма личного депозита 3000 MRC</div>
+                <div className="item">Сумма личного депозита 1 линии 8000 MRC</div>
+                <div className="item">Сумма общей структуры 40000 MRC</div>
+
+                <div className="info">
+                  <div className="info-item">
+                    <div className="name">Первый взнос</div>
+                    <div className="value">от 30%</div>
+                  </div>
+
+                  <div className="info-item">
+                    <div className="name">Срок получения</div>
+                    <div className="value">100 дней</div>
+                  </div>
+
+                  <MainButton text={'Оформить программу'} type={'lg'}/>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </Style.TextAndImage>
+      {/* /mira auto */}
     </Style.Wrapper>
   )
 }

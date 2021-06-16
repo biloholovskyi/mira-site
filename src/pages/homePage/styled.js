@@ -7,6 +7,8 @@ const Wrapper = styled.div`
 const TextAndImage = styled.div`
   overflow: hidden;
   
+  ${props => props.bg && {backgroundColor: props.bg}}
+  
   .text {
     padding: 120px 0;
     
@@ -14,6 +16,17 @@ const TextAndImage = styled.div`
       font-family: TT Interfaces, sans-serif;
       font-style: normal;
       font-weight: normal;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0.005em;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+    
+    .small-title {
+      font-family: TT Interfaces, sans-serif;
+      font-style: normal;
+      font-weight: 600;
       font-size: 18px;
       line-height: 26px;
       letter-spacing: 0.005em;
@@ -85,6 +98,16 @@ const TextAndImage = styled.div`
     &-first {
       margin-top: -60px;
     }
+    
+    &-phone {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  
+  .col-relative {
+    position: relative;
   }
 `
 
