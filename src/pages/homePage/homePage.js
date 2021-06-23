@@ -5,6 +5,7 @@ import MainBlock from "./mainBlock/mainBlock";
 import MainDesc from "./mainDesc/mainDesc";
 import DefaultTitle from "../../components/defaultTitle/defaultTitle";
 import MainButton from "../../components/buttons/mainButton/mainButton";
+import Footer from "../../components/footer/footer";
 
 import * as Style from './styled'
 
@@ -160,6 +161,8 @@ const HomePage = () => {
         </Container>
       </Style.TextAndImage>
       {/* /mira estate */}
+
+      <Footer/>
     </Style.Wrapper>
   )
 }

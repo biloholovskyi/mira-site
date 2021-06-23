@@ -12,6 +12,7 @@ const Button = styled.div`
   line-height: 24px;
   letter-spacing: 0.005em;
   color: #FFFFFF;
+  width: max-content;
 
   // lg type
   ${props => props.type === 'lg' && {
