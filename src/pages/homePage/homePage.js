@@ -6,6 +6,7 @@ import MainDesc from "./mainDesc/mainDesc";
 import DefaultTitle from "../../components/defaultTitle/defaultTitle";
 import MainButton from "../../components/buttons/mainButton/mainButton";
 import Footer from "../../components/footer/footer";
+import RoadMap from "./roadMap/roadMap";
 
 import * as Style from './styled'
 
@@ -161,6 +162,8 @@ const HomePage = () => {
         </Container>
       </Style.TextAndImage>
       {/* /mira estate */}
+
+      <RoadMap/>
 
       <Footer/>
     </Style.Wrapper>
