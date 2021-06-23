@@ -7,6 +7,7 @@ import DefaultTitle from "../../components/defaultTitle/defaultTitle";
 import MainButton from "../../components/buttons/mainButton/mainButton";
 import Footer from "../../components/footer/footer";
 import RoadMap from "./roadMap/roadMap";
+import Partners from "./partners/partners";
 
 import * as Style from './styled'
 
@@ -164,6 +165,8 @@ const HomePage = () => {
       {/* /mira estate */}
 
       <RoadMap/>
+
+      <Partners/>
 
       <Footer/>
     </Style.Wrapper>

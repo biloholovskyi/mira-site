@@ -1,0 +1,35 @@
+.partners-slider {
+  position: relative;
+
+  .slick-list {
+    overflow: visible !important;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    top: -88px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .slick-next {
+    right: 0;
+  }
+
+  .slick-prev {
+    right: 64px;
+    left: auto;
+    transform: rotate(180deg);
+    margin-top: -24px;
+  }
+
+  .slick-disabled {
+    opacity: 0.4;
+  }
+}
