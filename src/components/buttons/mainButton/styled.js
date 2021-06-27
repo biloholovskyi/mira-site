@@ -20,6 +20,17 @@ const Button = styled.div`
     fontSize: '20px',
     lineHeight: '28px'
   }}
+  
+  ${props => props.type === 'lg' && `
+    @media (max-width: 1199px) {
+      font-size: 18px;
+      padding: 14px 20px;
+    }
+  `}
+  
+  ${props => props.media && `
+    ${props.media}
+  `}
 `
 
 export {

@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 const Nav = styled.nav`
   margin-top: 40px;
+
+  @media (max-width: 575px) {
+    margin-top: 32px;
+  }
 `
 
 const Item = styled.a`
@@ -14,14 +18,19 @@ const Item = styled.a`
   letter-spacing: 0.005em;
   color: #FFFFFF;
   margin-bottom: 16px;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
-  
+
   &:hover {
     text-decoration: none;
     color: #fff;
+  }
+
+  @media (max-width: 575px) {
+    display: inline-block;
+    margin-right: 24px;
   }
 `
 

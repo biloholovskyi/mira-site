@@ -11,6 +11,13 @@ const HeaderWrapper = styled.header`
   top: 0;
   left: 0;
   z-index: 5000;
+  
+  @media (max-width: 991px) {
+    background: #121212;
+    padding: 16px;
+    margin-top: 0;
+    justify-content: flex-start;
+  }
 `
 
 export {

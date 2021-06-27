@@ -55,7 +55,18 @@ const HomePage = () => {
                     <div className="value">до 231%</div>
                   </div>
 
-                  <MainButton text={'Оформить депозит'} type={'lg'}/>
+                  <MainButton
+                    text={'Оформить депозит'}
+                    type={'lg'}
+                    media={
+                      `
+                        @media (max-width: 575px) {
+                          width: 100%;
+                          text-align: center;
+                        }
+                      `
+                    }
+                  />
                 </div>
               </div>
             </Col>
@@ -106,7 +117,18 @@ const HomePage = () => {
                     <div className="value">100 дней</div>
                   </div>
 
-                  <MainButton text={'Оформить программу'} type={'lg'}/>
+                  <MainButton
+                    text={'Оформить программу'}
+                    type={'lg'}
+                    media={
+                      `
+                        @media (max-width: 575px) {
+                          width: 100%;
+                          text-align: center;
+                        }
+                      `
+                    }
+                  />
                 </div>
               </div>
             </Col>

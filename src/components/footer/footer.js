@@ -41,12 +41,33 @@ const Footer = () => {
           <Col lg={{span: 8}}>
             <Style.FooterInfo>
               <Style.FooterNavWrapper>
-                <Logo/>
+                <Logo style575={{
+                  logo: `
+                    width: 39px;
+                    height: 31.12px;
+                    margin-right: 18.84px;
+                  `,
+                  text: `
+                    width: 88.47px;
+                    height: 29.98px; 
+                  `
+                }}/>
                 <FooterNav/>
               </Style.FooterNavWrapper>
               <Style.FooterRightBlock>
                 <h3>Начните зарабатывать вместе с Mira</h3>
-                <MainButton text={'Зарегистрироваться'} type={'lg'}/>
+                <MainButton
+                  text={'Зарегистрироваться'}
+                  type={'lg'}
+                  media={
+                    `
+                      @media (max-width: 575px) {
+                        width: 100%;
+                        text-align: center;
+                      }
+                    `
+                  }
+                />
               </Style.FooterRightBlock>
             </Style.FooterInfo>
 

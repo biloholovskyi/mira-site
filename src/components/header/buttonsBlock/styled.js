@@ -17,6 +17,10 @@ const Wrapper = styled.div`
     margin-right: 38px;
     cursor: pointer;
   }
+
+  @media (max-width: 991px) {
+    display: none;
+  }
 `
 
 export {

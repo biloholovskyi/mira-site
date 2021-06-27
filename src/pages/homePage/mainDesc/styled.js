@@ -22,6 +22,19 @@ const Wrapper = styled.div`
     width: calc(100% + 140px);
     margin-left: -70px;
   }
+  
+  @media (max-width: 767px) {
+    margin-top: 0;
+  }
+  
+  @media (max-width: 575px) {
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      margin-top: -16px;
+      margin-bottom: 64px;
+    }
+  }
 `
 
 export {

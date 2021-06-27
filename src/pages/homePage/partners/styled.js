@@ -4,6 +4,7 @@ import arrow from './media/arrow.svg'
 
 const Wrapper = styled.div`
   padding: 120px 0;
+  overflow: hidden;
   
   .partners-slider {
     .slick-arrow {

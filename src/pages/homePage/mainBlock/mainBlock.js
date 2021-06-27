@@ -16,7 +16,18 @@ const MainBlock = () => {
           <Col lg={7}>
             <Style.Title>Дарим финансовую независимость каждому</Style.Title>
             <Style.ButtonsBlock>
-              <MainButton text={'Зарегистрироваться'} type={'lg'}/>
+              <MainButton
+                text={'Зарегистрироваться'}
+                type={'lg'}
+                media={
+                  `
+                    @media (max-width: 575px) {
+                      width: 100%;
+                      text-align: center;
+                    }
+                  `
+                }
+              />
               <Style.WatchButton>
                 <img src={play} alt="play"/>
                 <div className="text">Смотреть видео</div>

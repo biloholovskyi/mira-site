@@ -150,6 +150,52 @@ const TextAndImage = styled.div`
   .col-relative {
     position: relative;
   }
+  
+  @media (max-width: 991px) {
+    .image {
+      height: auto;
+      width: 100%;
+      
+      &-first {
+        margin-top: 0;
+      }
+      
+      &-phone {
+        display: none;
+      }
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .text {
+      padding: 64px 0;
+      
+      .desc {
+        margin-top: -16px;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 24px;
+      }
+      
+      .item {
+        margin-bottom: 24px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      
+      .info {
+        flex-wrap: wrap;
+        
+        .info-item {
+          width: 50%;
+          min-width: 50%;
+          text-align: center;
+          margin-bottom: 32px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
 `
 
 export {

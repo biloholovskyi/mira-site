@@ -14,8 +14,8 @@ const Partners = () => {
     arrows: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    variableWidth: true
   };
 
   return (

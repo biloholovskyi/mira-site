@@ -9,6 +9,13 @@ const Nav = styled.nav`
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  
+  @media (max-width: 1199px) {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
 `
 
 const Item = styled.a`
@@ -28,6 +35,15 @@ const Item = styled.a`
   &:hover {
     text-decoration: none;
     color: #fff;
+  }
+  
+  @media (max-width: 1199px) {
+    font-size: 14px;
+    margin-right: 36px;
+  }
+
+  @media (max-width: 991px) {
+   display: none;
   }
 `
 

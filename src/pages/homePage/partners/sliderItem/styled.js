@@ -9,6 +9,7 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 16px;
   
   img {
     width: 64px;
@@ -40,6 +41,20 @@ const Item = styled.div`
     letter-spacing: 0.005em;
     color: #FFFFFF;
     opacity: 0.72;
+  }
+  
+  @media (max-width: 1299px) {
+    width: 252px;
+  }
+
+  @media (max-width: 1199px) {
+    width: 202px;
+    height: 304px;
+  }
+
+  @media (max-width: 991px) {
+    width: 282px;
+    height: 274px;
   }
 `
 

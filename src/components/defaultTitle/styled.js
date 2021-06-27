@@ -10,6 +10,22 @@ const Title = styled.h3`
   color: #FFFFFF;
   margin-bottom: 0;
   
+  @media (max-width: 991px) {
+    font-size: 30px;
+    line-height: 38px;
+  }
+  
+  @media (max-width: 767px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  @media (max-width: 575px) {
+    br {
+      display: none;
+    }
+  }
+  
   ${props => props.style}
 `
 

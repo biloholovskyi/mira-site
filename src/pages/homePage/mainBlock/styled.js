@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
   
   .container {
     position: relative;
@@ -39,8 +40,48 @@ const Wrapper = styled.div`
     right: 0;
     z-index: 50;
     background-image: url(${bottom});
-    background-position: bottom right;
+    background-position: top left;
     background-size: cover;
+  }
+  
+  @media (max-width: 991px) {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 300px;
+    
+    &::after {
+      width: 100vw;
+      height: 609px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    height: 640px;
+    min-height: auto;
+    padding-bottom: 170px;
+    padding-top: 170px;
+    
+    &::before {
+      width: 359px;
+      height: 208px;
+      top: 50px;
+    }
+
+    &::after {
+      min-width: 100vw;
+      width: 360px;
+      height: 509px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding: 170px 4px;
+    
+    &::after {
+      min-width: 100vw;
+      height: 290px;
+      background-position: top right;
+    }
   }
 `
 
@@ -63,11 +104,27 @@ const Title = styled.h1`
   line-height: 64px;
   text-transform: uppercase;
   color: #FFFFFF;
+  
+  @media (max-width: 991px) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 28px;
+    line-height: 36px;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
 `
 
 const ButtonsBlock = styled.div`
   display: flex;
   align-items: center;
+  
+  @media (max-width: 575px) {
+    flex-direction: column;
+  }
 `
 
 const WatchButton = styled.button`
@@ -95,6 +152,11 @@ const WatchButton = styled.button`
     line-height: 28px;
     letter-spacing: 0.005em;
     color: #FFFFFF;
+  }
+  
+  @media (max-width: 575px) {
+    margin-left: 0;
+    margin-top: 32px;
   }
 `
 

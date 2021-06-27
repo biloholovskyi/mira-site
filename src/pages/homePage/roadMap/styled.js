@@ -15,6 +15,15 @@ const Wrapper = styled.div`
     color: #FFFFFF;
     margin-bottom: 154px;
   }
+  
+  @media (max-width: 767px) {
+    display: none;
+    
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
 `
 
 export {
