@@ -17,11 +17,12 @@ const Wrapper = styled.div`
   }
   
   @media (max-width: 767px) {
-    display: none;
+    padding: 64px 0;
     
     h3 {
       font-size: 24px;
       line-height: 32px;
+      margin-bottom: 32px;
     }
   }
 `

@@ -8,6 +8,10 @@ const Line = styled.div`
   height: 2px;
   width: 100%;
   background-color: #373737;
+  
+  @media (max-width: 767px) {
+    display: none;
+  }
 `
 
 const DotWrapper = styled.div`
@@ -89,6 +93,45 @@ const DotWrapper = styled.div`
         margin-top: -74px;
         left: 50%;
         margin-left: -100px;
+      }
+    }
+  }
+  
+  @media (max-width: 767px) {
+    display: block;
+    margin-top: 0;
+    padding: 0;
+    
+    .dot {
+      margin-bottom: 64px;
+      
+      &:before {
+        content: '';
+        height: 66px;
+        width: 2px;
+        background-color: #373737;
+        position: absolute;
+        top: 18px;
+        margin-top: 0;
+        left: 50%;
+        margin-left: -1px;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+        
+        &:before {
+          display: none;
+        }
+      }
+      
+      .dotText {
+        width: 100vw;
+        top: 50%;
+        margin-top: -24px;
+        left: 40px;
+        margin-left: 0;
+        text-align: left;
       }
     }
   }
