@@ -27,6 +27,10 @@ const Title = styled.h3`
   }
   
   ${props => props.style}
+
+  ${props => props.media && `
+    ${props.media}
+  `}
 `
 
 export {

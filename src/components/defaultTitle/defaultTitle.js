@@ -3,9 +3,9 @@ import HTMLReactParser from "html-react-parser";
 
 import * as Style from './styled'
 
-const DefaultTitle = ({text, style}) => {
+const DefaultTitle = ({text, style, media}) => {
   return (
-    <Style.Title style={style}>{HTMLReactParser(text)}</Style.Title>
+    <Style.Title style={style} media={media}>{HTMLReactParser(text)}</Style.Title>
   )
 }
 

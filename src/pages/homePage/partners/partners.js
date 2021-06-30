@@ -23,7 +23,16 @@ const Partners = () => {
       <Container>
         <Row>
           <Col>
-            <DefaultTitle text={'Наши партнеры'} style={{marginBottom: 64}}/>
+            <DefaultTitle
+              text={'Наши партнеры'}
+              style={{marginBottom: 64}}
+              media={
+                `
+                  @media (max-width: 475px) {
+                    max-width: 200px;
+                  }
+                `
+              }/>
 
             <Slider {...settings} className={'partners-slider'}>
               <SliderItem/>
