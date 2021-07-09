@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  padding: 0 40px;
-  margin-top: 40px;
+  padding:  ${props => props.fixedHeader ? '20px 40px 20px' : '40px 40px 0'};
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5000;
+  z-index: 150;
+  background-color: ${props => props.fixedHeader && '#000'};
   
   @media (max-width: 991px) {
     background: #121212;

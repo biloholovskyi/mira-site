@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import {Container, Row, Col} from "react-bootstrap";
 
 import MainButton from "../../../components/buttons/mainButton/mainButton";
+import FullScreenVideo from "./fullScreenVideo/fullScreenVideo";
 
 import * as Style from './styled'
-
 import play from './media/play.svg'
 
 const MainBlock = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const showFullVideo = () => {
+    setShowVideo(!showVideo)
+  }
+
   return (
     <Style.Wrapper>
       <Style.Gradient/>
@@ -28,7 +34,9 @@ const MainBlock = () => {
                   `
                 }
               />
-              <Style.WatchButton>
+              <Style.WatchButton
+                onClick={showFullVideo}
+              >
                 <img src={play} alt="play"/>
                 <div className="text">Смотреть видео</div>
               </Style.WatchButton>
@@ -36,6 +44,13 @@ const MainBlock = () => {
           </Col>
         </Row>
       </Container>
+      {
+        showVideo && (
+          <FullScreenVideo
+            close={showFullVideo}
+          />
+        )
+      }
     </Style.Wrapper>
   )
 }

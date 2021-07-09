@@ -2,9 +2,9 @@ import React from "react";
 
 import * as Style from './styled'
 
-const Menu = () => {
+const Menu = ({fixedHeader}) => {
   return (
-    <Style.Nav>
+    <Style.Nav fixedHeader={fixedHeader}>
       <Style.Item href={'#'}>О проекте</Style.Item>
       <Style.Item href={'#'}>Новости</Style.Item>
       <Style.Item href={'#'}>Школа инвестирования</Style.Item>

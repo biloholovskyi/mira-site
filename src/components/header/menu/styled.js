@@ -3,9 +3,9 @@ import styled from "styled-components";
 const Nav = styled.nav`
   position: absolute;
   width: max-content;
-  height: 100%;
   left: 50%;
-  top: 0;
+  top: ${props => props.fixedHeader ? '20px' : '40px'};
+  height: 40px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;

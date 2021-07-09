@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {Container, Row, Col} from "react-bootstrap";
 
 import MainBlock from "./mainBlock/mainBlock";
@@ -12,11 +12,46 @@ import Partners from "./partners/partners";
 import * as Style from './styled'
 
 import imgDeposit from './media/image.png'
-import imgPhone from './media/image-phone.png'
+import imgPhone from './media/image-phone2.png'
+import imgPhoneSmall from './media/image-phone-small.png'
 import fire from './media/fire.svg'
-import imgEstate from './media/image-estate.png'
+import imgEstate from './media/image-estate2.png'
+import imgEstateSmall from './media/image-estate-small.png'
 
 const HomePage = () => {
+
+  const listenScrollEvent = (event) => {
+    if(window.scrollY > 300) {
+      const tickerTop = document.getElementById('tickers_top')
+      const tickerBottom = document.getElementById('tickers_bottom')
+      tickerTop.style.transform = 'translateX(' + window.scrollY * -0.1 + 'px)';
+      tickerBottom.style.transform = 'translateX(' + (window.scrollY - 3200) * 0.1 + 'px)';
+    }
+    if (window.scrollY > 1200) {
+      const image = document.getElementById('first');
+      image.classList.add('show');
+    }
+    if (window.scrollY > 2100) {
+      const bigImage = document.getElementById('second');
+      const smallImage = document.getElementById('small');
+      bigImage.classList.add('show');
+      smallImage.classList.add('show');
+    }
+    if (window.scrollY > 2800) {
+      const bigImage2 = document.getElementById('third');
+      const smallImage2 = document.getElementById('small2');
+      bigImage2.classList.add('show');
+      smallImage2.classList.add('show');
+    }
+   console.log(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+    return () =>
+      window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
+
   return (
     <Style.Wrapper>
       <MainBlock/>
@@ -72,7 +107,7 @@ const HomePage = () => {
             </Col>
             <Col lg={6}>
               {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgDeposit} alt="image" className="image image-first"/>
+              <img src={imgDeposit} alt="image" className="image image-first" id={'first'}/>
             </Col>
           </Row>
         </Container>
@@ -83,9 +118,10 @@ const HomePage = () => {
       <Style.TextAndImage bg={'#212121'}>
         <Container>
           <Row>
-            <Col lg={6} className={'col-relative'}>
+            <Col lg={6} className={'col-relative col-own'}>
               {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgPhone} alt="image" className="image image-phone"/>
+              <img src={imgPhoneSmall} alt="image" className="image-small" id={'small'}/>
+              <img src={imgPhone} alt="image" className="image image-phone" id={'second'}/>
             </Col>
 
             <Col lg={6}>
@@ -179,7 +215,8 @@ const HomePage = () => {
             </Col>
             <Col lg={6}>
               {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgEstate} alt="image" className="image image-first"/>
+              <img src={imgEstateSmall} alt="image" className="image-small-keys" id={'small2'}/>
+              <img src={imgEstate} alt="image" className="image image-third" id={'third'}/>
             </Col>
           </Row>
         </Container>
