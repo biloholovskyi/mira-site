@@ -70,12 +70,12 @@ const FooterInfo = styled.div`
 `
 
 const FooterBottom = styled.div`
-  width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding: 80px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 95px;
   
   .copyright {
     .name {
@@ -119,6 +119,16 @@ const FooterBottom = styled.div`
       }
     }
   }
+  
+  @media (max-width: 1299px) {
+    .copyright {
+      .link {
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
 
   @media (max-width: 1199px) {
     .copyright {
@@ -135,6 +145,10 @@ const FooterBottom = styled.div`
         }
       }
     }
+  }
+  
+  @media (max-width: 991px) {
+    margin-left: 0;
   }
 
   @media (max-width: 767px) {

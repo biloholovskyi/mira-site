@@ -9,8 +9,6 @@ const FooterNav = () => {
       <Style.Item href={'#'}>Новости</Style.Item>
       <Style.Item href={'#'}>Школа инвестирования</Style.Item>
       <Style.Item href={'#'}>Контакты</Style.Item>
-      <Style.Item href={'#'}>Новости</Style.Item>
-      <Style.Item href={'#'}>FAQ</Style.Item>
     </Style.Nav>
   )
 }
