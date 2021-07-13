@@ -43,7 +43,6 @@ const HomePage = () => {
       bigImage2.classList.add('show');
       smallImage2.classList.add('show');
     }
-   console.log(window.scrollY)
   }
 
   useEffect(() => {

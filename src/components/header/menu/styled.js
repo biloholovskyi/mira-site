@@ -9,6 +9,7 @@ const Nav = styled.nav`
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  transition: .5s;
   
   @media (max-width: 1199px) {
     position: relative;
