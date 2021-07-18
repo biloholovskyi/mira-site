@@ -27,7 +27,7 @@ const HomePage = () => {
       tickerTop.style.transform = 'translateX(' + window.scrollY * -0.1 + 'px)';
       tickerBottom.style.transform = 'translateX(' + (window.scrollY - 3200) * 0.1 + 'px)';
     }
-    if (window.scrollY > 1200) {
+    if (window.scrollY > 1300) {
       const image = document.getElementById('first');
       image.classList.add('show');
     }

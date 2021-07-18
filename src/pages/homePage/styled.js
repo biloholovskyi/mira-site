@@ -225,17 +225,17 @@ const TextAndImage = styled.div`
     }
     50% {
       opacity: 0;
-      transition: opacity 0.3s linear;
+      transition: opacity 0.6s linear;
       transform: scale(0);
     }
     80% {
       opacity: 1;
-      transition: transform 0.3s linear;
+      transition: transform 0.6s linear;
       transform: scale(1.1);
     }
     100% {
       opacity: 1;
-      transition: opacity 0.3s linear;
+      transition: opacity 0.6s linear;
       transform: scale(1);
     }
   }
