@@ -30,7 +30,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <Style.Footer>
+    <Style.Footer className={'content-block'}>
       <Container>
         <Row>
           <Col lg={{span: 4}}>

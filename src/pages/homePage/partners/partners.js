@@ -19,7 +19,7 @@ const Partners = () => {
   };
 
   return (
-    <Style.Wrapper>
+    <Style.Wrapper className={'content-block'}>
       <Container>
         <Row>
           <Col>

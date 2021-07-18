@@ -15,7 +15,7 @@ import tickers6 from './media/tickers6.svg'
 
 const MainDesc = () => {
   return (
-    <Style.Wrapper>
+    <Style.Wrapper className={'content-block'}>
       <Container>
         <Row>
           <Col lg={{offset: 5, span: 7}}>

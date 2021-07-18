@@ -7,10 +7,10 @@ import bg from './media/bg.jpg'
 const Wrapper = styled.div`
   height: 1194px;
   position: relative;
-  background-image: url(${bg});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-image: url(${bg});
+  // background-position: center;
+  // background-size: cover;
+  // background-repeat: no-repeat;
   overflow: hidden;
   
   .container {
@@ -83,6 +83,18 @@ const Wrapper = styled.div`
       background-position: top right;
     }
   }
+`
+
+const ParalaxImg = styled.div`
+  background-image: url(${bg});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 `
 
 const Gradient = styled.div`
@@ -162,6 +174,7 @@ const WatchButton = styled.button`
 
 export {
   Wrapper,
+  ParalaxImg,
   Title,
   Gradient,
   ButtonsBlock,

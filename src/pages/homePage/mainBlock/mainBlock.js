@@ -16,6 +16,7 @@ const MainBlock = () => {
 
   return (
     <Style.Wrapper>
+      <Style.ParalaxImg/>
       <Style.Gradient/>
       <Container>
         <Row>

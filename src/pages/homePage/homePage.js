@@ -57,7 +57,7 @@ const HomePage = () => {
       <MainDesc/>
 
       {/* mira deposit */}
-      <Style.TextAndImage>
+      <Style.TextAndImage className={'content-block'}>
         <Container>
           <Row>
             <Col lg={6}>

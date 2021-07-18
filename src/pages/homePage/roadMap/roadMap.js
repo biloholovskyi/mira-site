@@ -7,7 +7,7 @@ import * as Style from './styled'
 
 const RoadMap = () => {
   return (
-    <Style.Wrapper>
+    <Style.Wrapper className={'content-block'}>
       <Container>
         <Row>
           <Col>

@@ -4,6 +4,7 @@ const Wrapper = styled.div`
   background-color: #212121;
   padding: 120px 0 223px 0;
   overflow: hidden;
+  position: relative;
   
   h3 {
     font-family: HeliosExtC, sans-serif;

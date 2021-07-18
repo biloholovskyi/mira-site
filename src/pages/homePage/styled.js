@@ -2,10 +2,16 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   background-color: #121212;
+  
+  .content-block {
+    background-color: #121212;
+  }
 `
 
 const TextAndImage = styled.div`
   overflow: hidden;
+  position: relative;
+  background-color: #121212;
 
   ${props => props.bg && {backgroundColor: props.bg}}
   .text {
