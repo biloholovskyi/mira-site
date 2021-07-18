@@ -3,6 +3,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 50;
   
   .icon {
     width: 39px;

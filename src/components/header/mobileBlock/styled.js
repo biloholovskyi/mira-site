@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import hamb from './media/hamb.svg'
-
 const Wrapper = styled.div`
   display: none;
   
@@ -12,9 +10,33 @@ const Wrapper = styled.div`
     .hamburger {
       width: 24px;
       height: 24px;
-      background-image: url(${hamb});
       margin-right: 16px;
       cursor: pointer;
+      position: relative;
+      z-index: 50;
+      padding: 6px 3px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      .item {
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        transition: all .3s;
+        
+        &:nth-child(1) {
+          transform: ${props => props.show ? 'rotate(45deg) translateY(0) translateX(7px)' : 0};
+        }
+
+        &:nth-child(2) {
+          opacity: ${props => props.show ? 0 : 1}
+        }
+
+        &:nth-child(3) {
+          transform: ${props => props.show ? 'rotate(-45deg) translateY(0) translateX(7px)' : 0};
+        }
+      }
     }
     
     .delimiter {
@@ -22,6 +44,8 @@ const Wrapper = styled.div`
       height: 24px;
       background: #424242;
       margin-right: 16px;
+      position: relative;
+      z-index: 50;
     }
   }
 `
