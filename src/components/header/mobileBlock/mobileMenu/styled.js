@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     color: #FFFFFF;
     position: relative;
     z-index: 50;
-    
+    text-decoration: none;
     &.button {
       color: #36B37E;
     }

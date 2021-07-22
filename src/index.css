@@ -4,7 +4,9 @@
   outline: none;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #212121!important;
+}
 @font-face {
   font-family: 'HeliosExtC';
   src: local('HeliosExtC'), url(fonts/HeliosExtC/HeliosExtC.otf) format('opentype');

@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
-const Wrapper = styled.div`
+const Wrapper = styled(NavLink)`
   display: flex;
   align-items: center;
   position: relative;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
     object-fit: contain;
   }
   
-  @media (max-width: 991px) {
+  @media (max-width: 1130px) {
     .icon {
       width: 22.08px;
       height: 17.62px;

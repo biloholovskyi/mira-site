@@ -7,6 +7,10 @@ import * as Style from "./styled";
 const MobileBlock = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
 
+  const updateMobileMenu = (value) => {
+    setMobileMenu(value)
+  }
+
   return (
     <Style.Wrapper show={mobileMenu}>
       <div className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>
@@ -17,7 +21,7 @@ const MobileBlock = () => {
       <div className="delimiter"/>
 
       {
-        mobileMenu && <MobileMenu/>
+        mobileMenu && <MobileMenu updateMobileMenu={updateMobileMenu}/>
       }
     </Style.Wrapper>
   )

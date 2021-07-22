@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 const Nav = styled.nav`
   position: absolute;
@@ -19,7 +20,7 @@ const Nav = styled.nav`
   }
 `
 
-const Item = styled.a`
+const Item = styled(NavLink)`
   font-family: TT Interfaces, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -38,12 +39,12 @@ const Item = styled.a`
     color: #fff;
   }
   
-  @media (max-width: 1199px) {
+  @media (max-width: 1280px) {
     font-size: 14px;
     margin-right: 36px;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1130px) {
    display: none;
   }
 `

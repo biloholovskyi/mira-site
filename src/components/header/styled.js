@@ -13,7 +13,7 @@ const HeaderWrapper = styled.header`
   background-color: ${props => props.fixedHeader && '#000'};
   transition: .5s;
   
-  @media (max-width: 991px) {
+  @media (max-width: 1130px) {
     background: #121212;
     padding: 16px;
     margin-top: 0;

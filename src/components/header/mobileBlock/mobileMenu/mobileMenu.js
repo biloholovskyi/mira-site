@@ -1,16 +1,24 @@
 import React from 'react'
 
+import {NavLink} from 'react-router-dom';
+
 import * as Style from './styled'
 
-const MobileMenu = () => {
+const MobileMenu = ({updateMobileMenu}) => {
+
+  const hideMenu = () => {
+    updateMobileMenu(false)
+  }
+
 	return (
 		<Style.Wrapper>
-      <a href="#">О проекте</a>
-      <a href="#">Новости</a>
-      <a href="#">Школа инвестирования</a>
-      <a href="#">Контакты</a>
-      <a href="#">Войти</a>
-      <a href="#" className={'button'}>Зарегистрироваться</a>
+      <NavLink  onClick={hideMenu} to={"#"}>О проекте</NavLink>
+      <NavLink  onClick={hideMenu} to={"#"}>Новости</NavLink>
+      <NavLink  onClick={hideMenu} to={"#"}>Школа инвестирования</NavLink>
+      <NavLink  onClick={hideMenu} to={"#"}>Контакты</NavLink>
+      <NavLink  onClick={hideMenu} to={"/documents"}>Документы</NavLink>
+      <NavLink  onClick={hideMenu} to={"#"}>Войти</NavLink>
+      <NavLink  onClick={hideMenu} to={"#"} className={'button'}>Зарегистрироваться</NavLink>
 		</Style.Wrapper>
 	)
 }

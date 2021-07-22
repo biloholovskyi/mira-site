@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1130px) {
     display: none;
   }
 `

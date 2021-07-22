@@ -1,15 +1,16 @@
 import React from "react";
 
-import * as Style from './styled'
+import {Item, Nav} from './styled'
 
 const Menu = ({fixedHeader}) => {
   return (
-    <Style.Nav fixedHeader={fixedHeader}>
-      <Style.Item href={'#'}>О проекте</Style.Item>
-      <Style.Item href={'#'}>Новости</Style.Item>
-      <Style.Item href={'#'}>Школа инвестирования</Style.Item>
-      <Style.Item href={'#'}>Контакты</Style.Item>
-    </Style.Nav>
+    <Nav fixedHeader={fixedHeader}>
+      <Item to={'#'}>О проекте</Item>
+      <Item to={'#'}>Новости</Item>
+      <Item to={'#'}>Школа инвестирования</Item>
+      <Item to={'#'}>Контакты</Item>
+      <Item to={'/documents'}>Документы</Item>
+    </Nav>
   )
 }
 

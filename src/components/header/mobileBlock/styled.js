@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: none;
   
-  @media (max-width: 991px) {
+  @media (max-width: 1130px) {
     display: flex;
     align-items: center;
     

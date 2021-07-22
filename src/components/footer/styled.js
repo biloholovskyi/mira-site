@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Footer = styled.footer`
   overflow: hidden;
   position: relative;
+  background-color: #000;
 `
 
 const FooterFonWrapper = styled.div`
