@@ -13,7 +13,7 @@ const MobileMenu = ({updateMobileMenu}) => {
 	return (
 		<Style.Wrapper>
       <NavLink  onClick={hideMenu} to={"#"}>О проекте</NavLink>
-      <NavLink  onClick={hideMenu} to={"#"}>Новости</NavLink>
+      <NavLink  onClick={hideMenu} to={"/news"}>Новости</NavLink>
       <NavLink  onClick={hideMenu} to={"#"}>Школа инвестирования</NavLink>
       <NavLink  onClick={hideMenu} to={"#"}>Контакты</NavLink>
       <NavLink  onClick={hideMenu} to={"/documents"}>Документы</NavLink>
