@@ -51,6 +51,10 @@ const Block = styled.div`
     border-left: 1px solid #36B37E;
     border-right: 1px solid #36B37E;
     background: rgba(54, 179, 126, 0.2);
+    
+    &:last-child {
+      border-right: 1px solid #36B37E;
+    }
   `}
 `
 

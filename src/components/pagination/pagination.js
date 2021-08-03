@@ -1,17 +1,27 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 import Item from "./item/item";
 
 import * as Style from './styled'
 
-const Pagination = ({style}) => {
+// pages - колличество всех страниц
+// switchFunc - функция переключения страниц
+const Pagination = ({style, pages, activePage, switchFunc}) => {
+  const [items, setItems] = useState([])
+
+  useEffect(() => {
+    const pagesArray = []
+    for (let i = 0; i < pages; i++) {
+      const item = <Item number={i + 1} key={i} active={i + 1 === activePage} switchFunc={switchFunc}/>
+      pagesArray.push(item)
+    }
+    setItems(pagesArray)
+  }, [pages, activePage]);
+
+
 	return (
 		<Style.Wrapper style={style}>
-		  <Item number={1} active/>
-		  <Item number={2}/>
-		  <Item number={3}/>
-		  <Item number={4}/>
-		  <Item number={5}/>
+      {items}
 		</Style.Wrapper>
 	)
 }
