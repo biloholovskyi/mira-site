@@ -12,8 +12,6 @@ const Pagination = ({style}) => {
 		  <Item number={3}/>
 		  <Item number={4}/>
 		  <Item number={5}/>
-		  <Item dots/>
-		  <Item number={99}/>
 		</Style.Wrapper>
 	)
 }
