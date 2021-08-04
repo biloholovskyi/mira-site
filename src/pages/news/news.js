@@ -4,6 +4,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import DefaultTitle from "../../components/defaultTitle/defaultTitle";
 import NewsCart from "./newsCart/newsCart";
 import Pagination from "../../components/pagination/pagination";
+import Footer from "../../components/footer/footer";
 
 import * as Style from './styled'
 
@@ -456,21 +457,24 @@ const News = () => {
     setPaginationPageActive(number)
   }
 
-	return (
-		<Style.Wrapper>
-      <Container>
-        <Row>
-          <Col>
-            <DefaultTitle text={'новости'} style={{marginBottom: 60}}/>
-          </Col>
-        </Row>
-        <Row>
-          {newsRender}
-        </Row>
-      </Container>
-      <Pagination style={{marginTop: 20}} pages={paginationPages} activePage={paginationPageActive} switchFunc={switchPage}/>
-		</Style.Wrapper>
-	)
+  return (
+    <>
+      <Style.Wrapper>
+        <Container>
+          <Row>
+            <Col>
+              <DefaultTitle text={'новости'} style={{marginBottom: 60}}/>
+            </Col>
+          </Row>
+          <Row>
+            {newsRender}
+          </Row>
+        </Container>
+        <Pagination style={{marginTop: 20}} pages={paginationPages} activePage={paginationPageActive} switchFunc={switchPage}/>
+      </Style.Wrapper>
+      <Footer/>
+    </>
+  )
 }
 
 export default News

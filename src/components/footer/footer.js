@@ -4,15 +4,16 @@ import {Container, Row, Col} from "react-bootstrap";
 import Logo from "../logo/logo";
 import FooterNav from "./footerNav/footerNav";
 import MainButton from "../buttons/mainButton/mainButton";
+import SocialList from "../socialList/socialList";
 
 import * as Style from './styled'
 
 import fon from './media/footer.svg'
-import twitter from './media/twitter.svg'
-import linkedin from './media/linkedin.svg';
-import facebook from './media/facebook.svg'
-import whatsapp from './media/watsap.svg'
-import telegram from './media/telegram.svg'
+import twitter from '../socialList/media/twitter.svg'
+import linkedin from '../socialList/media/linkedin.svg';
+import facebook from '../socialList/media/facebook.svg'
+import whatsapp from '../socialList/media/watsap.svg'
+import telegram from '../socialList/media/telegram.svg'
 
 const Footer = () => {
   // ширини экрана
@@ -83,27 +84,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <Style.FooterSocial>
-                <Style.FooterSocialItem href={'#'}>
-                  <img src={twitter} alt="social"/>
-                </Style.FooterSocialItem>
-
-                <Style.FooterSocialItem href={'#'}>
-                  <img src={linkedin} alt="social"/>
-                </Style.FooterSocialItem>
-
-                <Style.FooterSocialItem href={'#'}>
-                  <img src={facebook} alt="social"/>
-                </Style.FooterSocialItem>
-
-                <Style.FooterSocialItem href={'#'}>
-                  <img src={whatsapp} alt="social"/>
-                </Style.FooterSocialItem>
-
-                <Style.FooterSocialItem href={'#'}>
-                  <img src={telegram} alt="social"/>
-                </Style.FooterSocialItem>
-              </Style.FooterSocial>
+              <SocialList/>
             </Style.FooterBottom>
           </Col>
         </Row>
