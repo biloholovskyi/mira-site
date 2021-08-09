@@ -36,6 +36,10 @@ const Form = styled.form`
     border-radius: 1000px;
     border: none;
   }
+  
+  @media(max-width: 500px){
+    padding: 20px;
+  }
 `
 
 export {

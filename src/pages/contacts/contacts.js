@@ -14,7 +14,7 @@ const Contacts = () => {
       <Style.Wrapper>
         <Container>
           <Row>
-            <Col lg={6}>
+            <Col xl={6} lg={6} md={12} sm={12}>
               <DefaultTitle text={'Контакты'}/>
 
               <Style.ContactsBlock>
@@ -46,7 +46,7 @@ const Contacts = () => {
               </Style.ContactsBlock>
             </Col>
 
-            <Col lg={6}>
+            <Col xl={6} lg={6} md={12} sm={12}>
               <ContactsForm/>
             </Col>
           </Row>

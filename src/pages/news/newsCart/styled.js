@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
-const Cart = styled.div`
+const Cart = styled(NavLink)`
   margin-bottom: 60px;
-  
+  display: block;
   img {
     width: 100%;
     height: 202px;

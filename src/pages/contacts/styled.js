@@ -7,6 +7,10 @@ const Wrapper = styled.div`
   .left {
     padding-top: 54px;
   }
+
+  @media(max-width: 767px){
+    padding: 100px 0 50px 0;
+  }
 `
 
 const ContactsBlock = styled.div`
@@ -44,6 +48,10 @@ const ContactsBlock = styled.div`
         margin-bottom: 12px;
       }
     }
+  }
+
+  @media(max-width: 500px){
+    flex-direction: column;
   }
 `
 
