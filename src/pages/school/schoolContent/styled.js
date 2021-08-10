@@ -26,6 +26,11 @@ const TabItem = styled.div`
   border-radius: 4px;
   cursor: pointer;
   
+  &.tabs-active {
+    background-color: rgba(54, 179, 126, 0.2);
+    color: #36B37E;
+  }
+  
   &:last-child {
     margin-right: 0;
   }

@@ -6,7 +6,7 @@ import DefaultTitle from "../../../components/defaultTitle/defaultTitle";
 import SliderItem from "./sliderItem/sliderItem";
 
 import * as Style from './styled'
-import './slider.scss'
+//import './slider.scss'
 
 const Partners = () => {
   const settings = {
