@@ -472,7 +472,7 @@ const News = () => {
         </Container>
         <Pagination style={{marginTop: 20}} pages={paginationPages} activePage={paginationPageActive} switchFunc={switchPage}/>
       </Style.Wrapper>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   )
 }

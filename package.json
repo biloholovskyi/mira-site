@@ -39,10 +39,12 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "html-react-parser": "^1.2.6",
     "node-sass": "^6.0.0",
     "react-bootstrap": "^1.6.1",
+    "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.1",
     "reactstrap": "^8.9.0",

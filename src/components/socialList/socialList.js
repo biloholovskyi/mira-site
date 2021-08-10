@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from "axios";
 
 import * as Style from './styled'
 
@@ -8,28 +9,37 @@ import facebook from "./media/facebook.svg";
 import whatsapp from "./media/watsap.svg";
 import telegram from "./media/telegram.svg";
 
+import ServerSettings from "../../service/serverSettings";
+
 const SocialList = () => {
+
+  const getSocialLinks = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/links/`)
+      .then(res => {
+        setSocialLinks(res.data)
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getSocialLinks().catch(error => console.error(error));
+  }, [])
+
 	return (
     <Style.Wrapper>
-      <Style.Item href={'#'}>
-        <img src={twitter} alt="social"/>
-      </Style.Item>
-
-      <Style.Item href={'#'}>
-        <img src={linkedin} alt="social"/>
-      </Style.Item>
-
-      <Style.Item href={'#'}>
-        <img src={facebook} alt="social"/>
-      </Style.Item>
-
-      <Style.Item href={'#'}>
-        <img src={whatsapp} alt="social"/>
-      </Style.Item>
-
-      <Style.Item href={'#'}>
-        <img src={telegram} alt="social"/>
-      </Style.Item>
+      {
+        socialLinks.map((item, k) => {
+          return (
+            <Style.Item key={k} href={item.link} target={'_blank'}>
+              <img src={item.icon} alt="social"/>
+            </Style.Item>
+          )
+        })
+      }
     </Style.Wrapper>
 	)
 }

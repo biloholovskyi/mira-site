@@ -74,7 +74,7 @@ const School = () => {
         />
       </Style.Wrapper>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   )
 }

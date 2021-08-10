@@ -65,7 +65,7 @@ const SingleNews = () => {
           </Row>
         </Container>
       </SingleNewsWrap>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   )
 }

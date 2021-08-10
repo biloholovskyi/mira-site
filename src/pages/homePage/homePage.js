@@ -226,7 +226,7 @@ const HomePage = () => {
 
       <Partners/>
 
-      <Footer/>
+      {/*<Footer/>*/}
     </Style.Wrapper>
   )
 }

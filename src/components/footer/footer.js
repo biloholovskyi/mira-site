@@ -1,5 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from "react";
 import {Container, Row, Col} from "react-bootstrap";
+import axios from "axios";
 
 import Logo from "../logo/logo";
 import FooterNav from "./footerNav/footerNav";
@@ -14,6 +15,8 @@ import linkedin from '../socialList/media/linkedin.svg';
 import facebook from '../socialList/media/facebook.svg'
 import whatsapp from '../socialList/media/watsap.svg'
 import telegram from '../socialList/media/telegram.svg'
+
+import ServerSettings from "../../service/serverSettings";
 
 const Footer = () => {
   // ширини экрана

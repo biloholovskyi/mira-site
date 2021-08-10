@@ -57,7 +57,7 @@ const Documents = () => {
           </div>
         </div>
       </Style.Wrapper>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   )
 }

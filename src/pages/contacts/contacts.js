@@ -52,7 +52,7 @@ const Contacts = () => {
           </Row>
         </Container>
       </Style.Wrapper>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
 	)
 }
