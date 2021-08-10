@@ -25,7 +25,20 @@ const Wrapper = styled.div`
     line-height: 48px;
     text-transform: uppercase;
     color: #FFFFFF;
+    @media(max-width: 600px){
+     font-size: 28px;
+      line-height: 32px;
+    }
+    @media(max-width: 425px){
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
+  
+  @media(max-width: 600px){
+    padding-top: 150px;
+  }
+  
 `
 
 export {

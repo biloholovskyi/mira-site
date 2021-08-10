@@ -3,7 +3,7 @@ import {Container, Row, Col} from "react-bootstrap";
 
 import * as Style from './styled'
 
-const SchoolContent = ({data}) => {
+const SchoolContent = ({data, searchTerm, setSearchTerm}) => {
   const [tabStatus, setTabStatus] = useState('all')
   const [catName, setCatName] = useState([
     {name: 'cat1'},
@@ -47,7 +47,13 @@ const SchoolContent = ({data}) => {
                 ? (
                   <>
                     {
-                      data.map((i, key) => {
+                      data.filter((item)=> {
+                        if(searchTerm === '') {
+                          return item
+                        } else if (item.question.toLowerCase().includes(searchTerm.toLowerCase())){
+                          return item
+                        }
+                      }).map((i, key) => {
                         return (
                           <Style.AccordItem key={key} onClick={(e) => openAccordItem(e)}>
                             <div className="title">
@@ -67,7 +73,13 @@ const SchoolContent = ({data}) => {
                 ? (
                   <>
                     {
-                      data.map((item, key) => {
+                      data.filter((item)=> {
+                        if(searchTerm === '') {
+                          return item
+                        } else if (item.question.toLowerCase().includes(searchTerm.toLowerCase())){
+                          return item
+                        }
+                      }).map((item, key) => {
                         if (item.cat === findCat.cat) {
                           return (
                             <Style.AccordItem key={key} onClick={(e) => openAccordItem(e)}>

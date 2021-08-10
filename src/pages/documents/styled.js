@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     width: 100%;
     top: 0;
     left: 0;
-    max-height: 364px;
+    //max-height: 364px;
     @media(max-width: 575px) {
       display: none;
     }

@@ -23,6 +23,7 @@ const FooterFon = styled.img`
   object-position: right bottom;
   top: 0;
   right: 0;
+  min-width: 800px;
 `
 
 const FooterNavWrapper = styled.div`

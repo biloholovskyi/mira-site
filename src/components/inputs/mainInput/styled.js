@@ -4,7 +4,13 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
   
-  ${props => props.style && props.style}
+  ${props => props.style && props.style};
+
+  @media(max-width: 767px) {
+      margin: unset;
+      margin-top: 20px;
+    width: 100%!important;
+  }
   
   .label {
     font-family: TT Interfaces, sans-serif;
@@ -20,7 +26,8 @@ const Wrapper = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    top: 24px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 16px;
     object-position: center;
     object-fit: contain;
@@ -41,6 +48,14 @@ const Wrapper = styled.div`
     margin-bottom: ${props => props.mb || '0'};
     
     ${props => props.styleInput && props.styleInput}
+    
+    @media(max-width: 992px) {
+      width: 702px!important;    
+    }
+
+    @media(max-width: 767px) {
+      width: 100%!important;
+    }
     
     &::placeholder {
       font-family: TT Interfaces, sans-serif;

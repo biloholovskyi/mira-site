@@ -7,10 +7,11 @@ import SchoolContent from "./schoolContent/schoolContent";
 import * as Style from './styled'
 
 const School = () => {
+  const [searchTerm, setSearchTerm] = useState('');
   const [schoolInfo, setSchoolInfo] = useState([
     {
       cat: 'cat1',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit111.',
+      question: 'Lorem1 ipsum dolor sit amet, consectetur adipiscing elit111.',
       answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis tellus\n' +
         '                      egestas, lobortis dui id, mattis augue. Aliquam ornare consequat lectus ac rhoncus. Cras libero orci,\n' +
         '                      fringilla eget maximus ac, mattis nec ex. Etiam malesuada diam eget ante luctus, ut rhoncus est aliquam.\n' +
@@ -20,7 +21,7 @@ const School = () => {
     },
     {
       cat: 'cat2',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit222.',
+      question: 'Lorem2 ipsum dolor sit amet, consectetur adipiscing elit222.',
       answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis tellus\n' +
         '                      egestas, lobortis dui id, mattis augue. Aliquam ornare consequat lectus ac rhoncus. Cras libero orci,\n' +
         '                      fringilla eget maximus ac, mattis nec ex. Etiam malesuada diam eget ante luctus, ut rhoncus est aliquam.\n' +
@@ -30,7 +31,7 @@ const School = () => {
     },
     {
       cat: 'cat2',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.222',
+      question: 'Lorem3 ipsum dolor sit amet, consectetur adipiscing elit.222',
       answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis tellus\n' +
         '                      egestas, lobortis dui id, mattis augue. Aliquam ornare consequat lectus ac rhoncus. Cras libero orci,\n' +
         '                      fringilla eget maximus ac, mattis nec ex. Etiam malesuada diam eget ante luctus, ut rhoncus est aliquam.\n' +
@@ -40,7 +41,7 @@ const School = () => {
     },
     {
       cat: 'cat4',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit444.',
+      question: 'Lorem4 ipsum dolor sit amet, consectetur adipiscing elit444.',
       answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis tellus\n' +
         '                      egestas, lobortis dui id, mattis augue. Aliquam ornare consequat lectus ac rhoncus. Cras libero orci,\n' +
         '                      fringilla eget maximus ac, mattis nec ex. Etiam malesuada diam eget ante luctus, ut rhoncus est aliquam.\n' +
@@ -50,7 +51,7 @@ const School = () => {
     },
     {
       cat: 'cat5',
-      question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit555.',
+      question: 'Lorem5 ipsum dolor sit amet, consectetur adipiscing elit555.',
       answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis tellus\n' +
         '                      egestas, lobortis dui id, mattis augue. Aliquam ornare consequat lectus ac rhoncus. Cras libero orci,\n' +
         '                      fringilla eget maximus ac, mattis nec ex. Etiam malesuada diam eget ante luctus, ut rhoncus est aliquam.\n' +
@@ -64,9 +65,13 @@ const School = () => {
   return (
     <>
       <Style.Wrapper>
-        <SchoolHeader/>
+        <SchoolHeader setSearchTerm={setSearchTerm}/>
 
-        <SchoolContent data={schoolInfo}/>
+        <SchoolContent
+          data={schoolInfo}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
       </Style.Wrapper>
 
       <Footer/>

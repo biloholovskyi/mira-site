@@ -3,6 +3,10 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   padding-top: 72px;
   padding-bottom: 120px;
+  @media(max-width: 600px){
+   padding-top: 35px;
+    padding-bottom: 80px;
+  }
 `
 
 const TabWrapper = styled.div`
@@ -10,6 +14,13 @@ const TabWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
+  @media(max-width: 800px){
+   overflow: auto;
+    justify-content: flex-start;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `
 
 const TabItem = styled.div`
@@ -34,6 +45,9 @@ const TabItem = styled.div`
   &:last-child {
     margin-right: 0;
   }
+  @media(max-width: 800px){
+   min-width: fit-content;
+  }
 `
 
 const AccordItem = styled.div`
@@ -57,6 +71,9 @@ const AccordItem = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    @media(max-width: 600px){
+     font-size: 16px;
+    }
   }
   
   .text {
@@ -70,6 +87,9 @@ const AccordItem = styled.div`
     transition: height, margin-top .3s;
     height: 0;
     visibility: hidden;
+    @media(max-width: 600px){
+      font-size: 14px;
+    }
   }
   
   &.open {
@@ -86,6 +106,10 @@ const AccordItem = styled.div`
       height: auto;
       margin-top: 40px;
     }
+  }
+
+  @media(max-width: 600px){
+    padding: 20px;
   }
 `
 
