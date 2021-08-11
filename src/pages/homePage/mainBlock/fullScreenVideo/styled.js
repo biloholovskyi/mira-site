@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const FullVideo = styled.div`
-  position: fixed;
-  z-index: 200;
+  position: ${props => props.main === false ? 'fixed' : 'absolute'};
+  z-index: ${props => props.main === false ? '200' : '2'};
   left: 0;
   top: 0;
   width: 100%;
@@ -11,6 +11,13 @@ const FullVideo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  .video-react {
+    top: ${props => props.main === false ? 'unset' : '-65px'};
+    .video-react-poster {
+      background-size: cover!important;
+      top: ${props => props.main === false ? '0' : '-135px'};
+    }
+  }
 `
 
 const CloseBtn = styled.button`

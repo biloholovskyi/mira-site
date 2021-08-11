@@ -17,7 +17,12 @@ const bgFon = mainContent.image;
 
   return (
     <Style.Wrapper>
-      <Style.ParalaxImg bgFon={bgFon}/>
+      {/*<Style.ParalaxImg bgFon={bgFon}/>*/}
+      <FullScreenVideo
+        close={showFullVideo}
+        mainContent={mainContent}
+        main
+      />
       <Style.Gradient/>
       <Container>
         <Row>

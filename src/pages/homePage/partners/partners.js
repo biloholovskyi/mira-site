@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Slider from "react-slick";
 import {Container, Row, Col} from "react-bootstrap";
 
@@ -6,9 +6,29 @@ import DefaultTitle from "../../../components/defaultTitle/defaultTitle";
 import SliderItem from "./sliderItem/sliderItem";
 
 import * as Style from './styled'
+import axios from "axios";
+import ServerSettings from "../../../service/serverSettings";
 //import './slider.scss'
 
 const Partners = () => {
+  const [slide, setSlide] =useState([]);
+
+  const getSlider = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/slider/`)
+      .then(res => {
+        setSlide(res.data)
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getSlider().catch(error => console.error(error));
+  }, [])
+
   const settings = {
     dots: false,
     arrows: true,
@@ -35,18 +55,13 @@ const Partners = () => {
               }/>
 
             <Slider {...settings} className={'partners-slider'}>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
-              <SliderItem/>
+              {
+                slide.map((item, k) => {
+                  return (
+                    <SliderItem key={k} item={item}/>
+                  )
+                })
+              }
             </Slider>
           </Col>
         </Row>

@@ -25,7 +25,7 @@ const HomePage = () => {
   const [miraDeposit, setMiraDeposit] = useState({});
   const [miraAuto, setMiraAuto] = useState({});
   const [miraEstate, setMiraEstate] = useState({});
-console.log(miraEstate)
+
   const getMainContent = async () => {
     axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
     axios.defaults.xsrfCookieName = 'csrftoken';
