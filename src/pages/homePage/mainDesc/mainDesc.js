@@ -13,21 +13,19 @@ import tickers4 from './media/tickers4.svg'
 import tickers5 from './media/tickers5.svg'
 import tickers6 from './media/tickers6.svg'
 
-const MainDesc = () => {
+const MainDesc = ({mainContent}) => {
   return (
     <Style.Wrapper className={'content-block'}>
       <Container>
         <Row>
           <Col lg={{offset: 5, span: 7}}>
             <DefaultTitle
-              text={'Легкий вход <br> на рынок инвестиций <br> для каждого'}
+              text={mainContent.sub_title}
               style={{
                 marginBottom: '40px'
               }}
             />
-            <p>Компания Мира работает на разных биржевых площадках с различными финансовыми инструментами (более 20
-              инструментов). За счет надежной диверсификации портфеля MIRA, держатели индекса MIRA получают пассивную
-              прибыль до 1% в день с высоким уровнем защиты капитала.</p>
+            <p>{mainContent.desc}</p>
           </Col>
         </Row>
       </Container>

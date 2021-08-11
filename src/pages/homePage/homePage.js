@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {Container, Row, Col} from "react-bootstrap";
 
 import MainBlock from "./mainBlock/mainBlock";
@@ -17,8 +17,48 @@ import imgPhoneSmall from './media/image-phone-small.png'
 import fire from './media/fire.svg'
 import imgEstate from './media/image-estate2.png'
 import imgEstateSmall from './media/image-estate-small.png'
+import axios from "axios";
+import ServerSettings from "../../service/serverSettings";
 
 const HomePage = () => {
+  const [mainContent, setMainContent] = useState({});
+  const [miraDeposit, setMiraDeposit] = useState({});
+  const [miraAuto, setMiraAuto] = useState({});
+  const [miraEstate, setMiraEstate] = useState({});
+console.log(miraEstate)
+  const getMainContent = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/main/`)
+      .then(res => {
+        setMainContent(res.data[0])
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getMainContent().catch(error => console.error(error));
+  }, [])
+
+  const getAllPrograms = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/programs/`)
+      .then(res => {
+        setMiraDeposit(res.data[0])
+        setMiraAuto(res.data[1])
+        setMiraEstate(res.data[2])
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getAllPrograms().catch(error => console.error(error));
+  }, [])
 
   const listenScrollEvent = (event) => {
     if(window.scrollY > 300) {
@@ -53,174 +93,368 @@ const HomePage = () => {
 
   return (
     <Style.Wrapper>
-      <MainBlock/>
-      <MainDesc/>
+      <MainBlock mainContent={mainContent}/>
+      <MainDesc mainContent={mainContent}/>
 
-      {/* mira deposit */}
-      <Style.TextAndImage className={'content-block'}>
-        <Container>
-          <Row>
-            <Col lg={6}>
-              <div className="text">
-                <DefaultTitle
-                  text={'Mira deposit'}
-                  style={{
-                    marginBottom: '40px'
-                  }}
-                />
+      <>
+        {/* mira deposit */}
+        <Style.TextAndImage  className={'content-block'}>
+          <Container>
+            <Row>
+              <Col lg={6}>
+                <div className="text">
+                  {
+                    miraDeposit.announcement === 'True' && (
+                      <div className="fast">
+                        <img src={fire} alt="fire"/>
+                        <div className="fast-text">Скоро</div>
+                      </div>
+                    )
+                  }
 
-                <p className="desc">Инвестирование в базовый индекс MIRA Index позволяет вам надежно и и с высоким
-                  уровнем дохода разместить средства в лучшие финансовые активы десятилетия:</p>
+                  <DefaultTitle
+                    text={miraDeposit.title}
+                    style={{
+                      marginBottom: '40px'
+                    }}
+                  />
 
-                <div className="item">Криптовалюты (трейдинг внутри дня, фарминг, стейкинг)</div>
-                <div className="item">Фондовый рынок (акции крупных производственных компаний, IT-стартапов)</div>
-                <div className="item">Инвестиции в IT-стартапы на ранней стадии перед выходом на Pre-IPO/IPO</div>
-                <div className="item">Торги на рынке FOREX</div>
-                <div className="item">Заработок на программах обучения Mira University</div>
+                  <p className="desc">{miraDeposit.short_text}</p>
 
-                <div className="info">
-                  <div className="info-item">
-                    <div className="name">Сумма депозита</div>
-                    <div className="value">от $100</div>
-                  </div>
+                  <div className="item">Криптовалюты (трейдинг внутри дня, фарминг, стейкинг)</div>
+                  <div className="item">Фондовый рынок (акции крупных производственных компаний, IT-стартапов)</div>
+                  <div className="item">Инвестиции в IT-стартапы на ранней стадии перед выходом на Pre-IPO/IPO</div>
+                  <div className="item">Торги на рынке FOREX</div>
+                  <div className="item">Заработок на программах обучения Mira University</div>
 
-                  <div className="info-item">
-                    <div className="name">Ставка</div>
-                    <div className="value">до 231%</div>
-                  </div>
+                  <div className="info">
+                    {
+                      miraDeposit.sum !== null && (
+                        <div className="info-item">
+                          <div className="name">Сумма депозита</div>
+                          <div className="value">от ${miraDeposit.sum}</div>
+                        </div>
+                      )
+                    }
+                    {
+                      miraDeposit.rate !== null && (
+                        <div className="info-item">
+                          <div className="name">Ставка</div>
+                          <div className="value">до {miraDeposit.rate}%</div>
+                        </div>
+                      )
+                    }
 
-                  <MainButton
-                    text={'Оформить депозит'}
-                    type={'lg'}
-                    media={
-                      `
+                    <MainButton
+                      text={'Оформить программу'}
+                      type={'lg'}
+                      media={
+                        `
                         @media (max-width: 575px) {
                           width: 100%;
                           text-align: center;
                         }
                       `
-                    }
-                  />
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <Col lg={6}>
-              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgDeposit} alt="image" className="image image-first" id={'first'}/>
-            </Col>
-          </Row>
-        </Container>
-      </Style.TextAndImage>
-      {/* /mira deposit */}
+              </Col>
+              <Col lg={6}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={miraDeposit.img} alt="image" className="image image-first" id={'first'}/>
+              </Col>
+            </Row>
+          </Container>
+        </Style.TextAndImage>
+        {/* mira deposit */}
 
-      {/* mira auto */}
-      <Style.TextAndImage bg={'#212121'}>
-        <Container>
-          <Row>
-            <Col lg={6} className={'col-relative col-own'}>
-              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgPhoneSmall} alt="image" className="image-small" id={'small'}/>
-              <img src={imgPhone} alt="image" className="image image-phone" id={'second'}/>
-            </Col>
+        {/* mira auto */}
+        <Style.TextAndImage bg={'#212121'}>
+          <Container>
+            <Row>
+              <Col lg={6} className={'col-relative col-own'}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={miraAuto.small_img} alt="image" className="image-small" id={'small'}/>
+                <img src={miraAuto.img} alt="image" className="image image-phone" id={'second'}/>
+              </Col>
 
-            <Col lg={6}>
-              <div className="text">
-                <DefaultTitle
-                  text={'Mira AUTO'}
-                  style={{
-                    marginBottom: '40px'
-                  }}
-                />
+              <Col lg={6}>
+                <div className="text">
+                  {
+                    miraAuto.announcement === 'True' && (
+                      <div className="fast">
+                        <img src={fire} alt="fire"/>
+                        <div className="fast-text">Скоро</div>
+                      </div>
+                    )
+                  }
 
-                <p className="desc">Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести
-                  автомобиль за 35% от его розничной стоимости в течение 100 дней.</p>
+                  <DefaultTitle
+                    text={miraAuto.title}
+                    style={{
+                      marginBottom: '40px'
+                    }}
+                  />
 
-                <h4 className="small-title">Условия для активации Авто-программы:</h4>
+                  <p className="desc">{miraAuto.short_text}</p>
 
-                <div className="item">Личный уровень 5 (1 линия 5 человек, сумма личного депозита 3000 MRC</div>
-                <div className="item">Сумма личного депозита 1 линии 8000 MRC</div>
-                <div className="item">Сумма общей структуры 40000 MRC</div>
+                  <h4 className="small-title">Условия для активации Авто-программы:</h4>
 
-                <div className="info">
-                  <div className="info-item">
-                    <div className="name">Первый взнос</div>
-                    <div className="value">от 30%</div>
-                  </div>
+                  <div className="item">Личный уровень 5 (1 линия 5 человек, сумма личного депозита 3000 MRC</div>
+                  <div className="item">Сумма личного депозита 1 линии 8000 MRC</div>
+                  <div className="item">Сумма общей структуры 40000 MRC</div>
 
-                  <div className="info-item">
-                    <div className="name">Срок получения</div>
-                    <div className="value">100 дней</div>
-                  </div>
+                  <div className="info">
+                    <div className="info-item">
+                      <div className="name">Первый взнос</div>
+                      <div className="value">от 30%</div>
+                    </div>
 
-                  <MainButton
-                    text={'Оформить программу'}
-                    type={'lg'}
-                    media={
-                      `
+                    <div className="info-item">
+                      <div className="name">Срок получения</div>
+                      <div className="value">100 дней</div>
+                    </div>
+
+                    <MainButton
+                      text={'Оформить программу'}
+                      type={'lg'}
+                      media={
+                        `
                         @media (max-width: 575px) {
                           width: 100%;
                           text-align: center;
                         }
                       `
-                    }
+                      }
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </Style.TextAndImage>
+        {/* /mira auto */}
+
+        {/* mira estate */}
+        <Style.TextAndImage>
+          <Container>
+            <Row>
+              <Col lg={6}>
+                <div className="text">
+                  {
+                    miraEstate.announcement === 'True' && (
+                      <div className="fast">
+                        <img src={fire} alt="fire"/>
+                        <div className="fast-text">Скоро</div>
+                      </div>
+                    )
+                  }
+
+                  <DefaultTitle
+                    text={miraEstate.title}
+                    style={{
+                      marginBottom: '40px'
+                    }}
                   />
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </Style.TextAndImage>
-      {/* /mira auto */}
 
-      {/* mira estate */}
-      <Style.TextAndImage>
-        <Container>
-          <Row>
-            <Col lg={6}>
-              <div className="text">
-                <div className="fast">
-                  <img src={fire} alt="fire"/>
-                  <div className="fast-text">Скоро</div>
-                </div>
+                  <p className="desc">{miraEstate.short_text}</p>
 
-                <DefaultTitle
-                  text={'Mira estate'}
-                  style={{
-                    marginBottom: '40px'
-                  }}
-                />
+                  <h4 className="small-title">Условия для активации Квартирной программы:</h4>
 
-                <p className="desc">Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете
-                  приобрести квартиру/дом своей мечты за 35% от цены в течение всего 100 дней.</p>
+                  <div className="item">Личный уровень 8 (1 линия 5 человек, сумма личного депозита 10000 MRC</div>
+                  <div className="item">1 линия 30000 MRC</div>
+                  <div className="item">Cтруктура 500000 MRC</div>
 
-                <h4 className="small-title">Условия для активации Квартирной программы:</h4>
+                  <div className="info info-start">
+                    <div className="info-item">
+                      <div className="name">Первый взнос</div>
+                      <div className="value">{miraEstate.first_installment}%</div>
+                    </div>
 
-                <div className="item">Личный уровень 8 (1 линия 5 человек, сумма личного депозита 10000 MRC</div>
-                <div className="item">1 линия 30000 MRC</div>
-                <div className="item">Cтруктура 500000 MRC</div>
-
-                <div className="info info-start">
-                  <div className="info-item">
-                    <div className="name">Первый взнос</div>
-                    <div className="value">35%</div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="name">Срок получения</div>
-                    <div className="value">100 дней</div>
+                    <div className="info-item">
+                      <div className="name">Срок получения</div>
+                      <div className="value">{miraEstate.term}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Col>
-            <Col lg={6}>
-              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-              <img src={imgEstateSmall} alt="image" className="image-small-keys" id={'small2'}/>
-              <img src={imgEstate} alt="image" className="image image-third" id={'third'}/>
-            </Col>
-          </Row>
-        </Container>
-      </Style.TextAndImage>
-      {/* /mira estate */}
+              </Col>
+              <Col lg={6}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={miraEstate.small_img} alt="image" className="image-small-keys" id={'small2'}/>
+                <img src={miraEstate.img} alt="image" className="image image-third" id={'third'}/>
+              </Col>
+            </Row>
+          </Container>
+        </Style.TextAndImage>
+        {/* /mira estate */}
+      </>
+
+      {/*/!* mira deposit *!/*/}
+      {/*<Style.TextAndImage className={'content-block'}>*/}
+      {/*  <Container>*/}
+      {/*    <Row>*/}
+      {/*      <Col lg={6}>*/}
+      {/*        <div className="text">*/}
+      {/*          <DefaultTitle*/}
+      {/*            text={'Mira deposit'}*/}
+      {/*            style={{*/}
+      {/*              marginBottom: '40px'*/}
+      {/*            }}*/}
+      {/*          />*/}
+
+      {/*          <p className="desc">Инвестирование в базовый индекс MIRA Index позволяет вам надежно и и с высоким*/}
+      {/*            уровнем дохода разместить средства в лучшие финансовые активы десятилетия:</p>*/}
+
+      {/*          <div className="item">Криптовалюты (трейдинг внутри дня, фарминг, стейкинг)</div>*/}
+      {/*          <div className="item">Фондовый рынок (акции крупных производственных компаний, IT-стартапов)</div>*/}
+      {/*          <div className="item">Инвестиции в IT-стартапы на ранней стадии перед выходом на Pre-IPO/IPO</div>*/}
+      {/*          <div className="item">Торги на рынке FOREX</div>*/}
+      {/*          <div className="item">Заработок на программах обучения Mira University</div>*/}
+
+      {/*          <div className="info">*/}
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Сумма депозита</div>*/}
+      {/*              <div className="value">от $100</div>*/}
+      {/*            </div>*/}
+
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Ставка</div>*/}
+      {/*              <div className="value">до 231%</div>*/}
+      {/*            </div>*/}
+
+      {/*            <MainButton*/}
+      {/*              text={'Оформить депозит'}*/}
+      {/*              type={'lg'}*/}
+      {/*              media={*/}
+      {/*                `*/}
+      {/*                  @media (max-width: 575px) {*/}
+      {/*                    width: 100%;*/}
+      {/*                    text-align: center;*/}
+      {/*                  }*/}
+      {/*                `*/}
+      {/*              }*/}
+      {/*            />*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </Col>*/}
+      {/*      <Col lg={6}>*/}
+      {/*        /!* eslint-disable-next-line jsx-a11y/img-redundant-alt *!/*/}
+      {/*        <img src={imgDeposit} alt="image" className="image image-first" id={'first'}/>*/}
+      {/*      </Col>*/}
+      {/*    </Row>*/}
+      {/*  </Container>*/}
+      {/*</Style.TextAndImage>*/}
+      {/*/!* /mira deposit *!/*/}
+
+      {/*/!* mira auto *!/*/}
+      {/*<Style.TextAndImage bg={'#212121'}>*/}
+      {/*  <Container>*/}
+      {/*    <Row>*/}
+      {/*      <Col lg={6} className={'col-relative col-own'}>*/}
+      {/*        /!* eslint-disable-next-line jsx-a11y/img-redundant-alt *!/*/}
+      {/*        <img src={imgPhoneSmall} alt="image" className="image-small" id={'small'}/>*/}
+      {/*        <img src={imgPhone} alt="image" className="image image-phone" id={'second'}/>*/}
+      {/*      </Col>*/}
+
+      {/*      <Col lg={6}>*/}
+      {/*        <div className="text">*/}
+      {/*          <DefaultTitle*/}
+      {/*            text={'Mira AUTO'}*/}
+      {/*            style={{*/}
+      {/*              marginBottom: '40px'*/}
+      {/*            }}*/}
+      {/*          />*/}
+
+      {/*          <p className="desc">Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести*/}
+      {/*            автомобиль за 35% от его розничной стоимости в течение 100 дней.</p>*/}
+
+      {/*          <h4 className="small-title">Условия для активации Авто-программы:</h4>*/}
+
+      {/*          <div className="item">Личный уровень 5 (1 линия 5 человек, сумма личного депозита 3000 MRC</div>*/}
+      {/*          <div className="item">Сумма личного депозита 1 линии 8000 MRC</div>*/}
+      {/*          <div className="item">Сумма общей структуры 40000 MRC</div>*/}
+
+      {/*          <div className="info">*/}
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Первый взнос</div>*/}
+      {/*              <div className="value">от 30%</div>*/}
+      {/*            </div>*/}
+
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Срок получения</div>*/}
+      {/*              <div className="value">100 дней</div>*/}
+      {/*            </div>*/}
+
+      {/*            <MainButton*/}
+      {/*              text={'Оформить программу'}*/}
+      {/*              type={'lg'}*/}
+      {/*              media={*/}
+      {/*                `*/}
+      {/*                  @media (max-width: 575px) {*/}
+      {/*                    width: 100%;*/}
+      {/*                    text-align: center;*/}
+      {/*                  }*/}
+      {/*                `*/}
+      {/*              }*/}
+      {/*            />*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </Col>*/}
+      {/*    </Row>*/}
+      {/*  </Container>*/}
+      {/*</Style.TextAndImage>*/}
+      {/*/!* /mira auto *!/*/}
+
+      {/*/!* mira estate *!/*/}
+      {/*<Style.TextAndImage>*/}
+      {/*  <Container>*/}
+      {/*    <Row>*/}
+      {/*      <Col lg={6}>*/}
+      {/*        <div className="text">*/}
+      {/*          <div className="fast">*/}
+      {/*            <img src={fire} alt="fire"/>*/}
+      {/*            <div className="fast-text">Скоро</div>*/}
+      {/*          </div>*/}
+
+      {/*          <DefaultTitle*/}
+      {/*            text={'Mira estate'}*/}
+      {/*            style={{*/}
+      {/*              marginBottom: '40px'*/}
+      {/*            }}*/}
+      {/*          />*/}
+
+      {/*          <p className="desc">Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете*/}
+      {/*            приобрести квартиру/дом своей мечты за 35% от цены в течение всего 100 дней.</p>*/}
+
+      {/*          <h4 className="small-title">Условия для активации Квартирной программы:</h4>*/}
+
+      {/*          <div className="item">Личный уровень 8 (1 линия 5 человек, сумма личного депозита 10000 MRC</div>*/}
+      {/*          <div className="item">1 линия 30000 MRC</div>*/}
+      {/*          <div className="item">Cтруктура 500000 MRC</div>*/}
+
+      {/*          <div className="info info-start">*/}
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Первый взнос</div>*/}
+      {/*              <div className="value">35%</div>*/}
+      {/*            </div>*/}
+
+      {/*            <div className="info-item">*/}
+      {/*              <div className="name">Срок получения</div>*/}
+      {/*              <div className="value">100 дней</div>*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </Col>*/}
+      {/*      <Col lg={6}>*/}
+      {/*        /!* eslint-disable-next-line jsx-a11y/img-redundant-alt *!/*/}
+      {/*        <img src={imgEstateSmall} alt="image" className="image-small-keys" id={'small2'}/>*/}
+      {/*        <img src={imgEstate} alt="image" className="image image-third" id={'third'}/>*/}
+      {/*      </Col>*/}
+      {/*    </Row>*/}
+      {/*  </Container>*/}
+      {/*</Style.TextAndImage>*/}
+      {/*/!* /mira estate *!/*/}
 
       <RoadMap/>
 

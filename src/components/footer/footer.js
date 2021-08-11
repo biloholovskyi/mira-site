@@ -19,8 +19,26 @@ import telegram from '../socialList/media/telegram.svg'
 import ServerSettings from "../../service/serverSettings";
 
 const Footer = () => {
+  const [document, setDocument] = useState([]);
+
   // ширини экрана
   const [window, setWindow] = useState(0);
+
+  const getDocuments = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/documents/`)
+      .then(res => {
+        setDocument(res.data)
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getDocuments().catch(error => console.error(error));
+  }, [])
 
   // получаем ширину картинки
   const fonWith = () => {
@@ -79,11 +97,13 @@ const Footer = () => {
               <div className="copyright">
                 <div className="name">Copyright © 2021 MIRA</div>
                 <div className="link">
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a href="#">Пользовательское соглашение</a>
-                  <div className="delimit">/</div>
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a href="#">Политика конфиденциальности</a>
+                  {
+                    document.map((i ,k) => {
+                      return (
+                        <a key={k} href={i.file}>{i.name}</a>
+                      )
+                    })
+                  }
                 </div>
               </div>
 

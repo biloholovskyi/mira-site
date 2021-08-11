@@ -4,6 +4,7 @@ import top from './media/top.svg'
 import bottom from './media/bottom.svg'
 import bg from './media/bg.jpg'
 
+
 const Wrapper = styled.div`
   height: 1194px;
   position: relative;
@@ -86,7 +87,8 @@ const Wrapper = styled.div`
 `
 
 const ParalaxImg = styled.div`
-  background-image: url(${bg});
+  // eslint-disable-next-line no-undef
+  background-image: url(${props => props.bgFon && props.bgFon});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -5,7 +5,7 @@ import closed from '../media/close.svg'
 import {FullVideo, CloseBtn, FakeBg} from './styled';
 import './video-react.css';
 
-const FullScreenVideo = ({close}) => {
+const FullScreenVideo = ({close, mainContent}) => {
   return (
     <FullVideo>
       <CloseBtn onClick={close} ><img src={closed} alt="icon"/></CloseBtn>
@@ -14,8 +14,8 @@ const FullScreenVideo = ({close}) => {
         muted
         autoPlay
         loop
-        poster="./poster.png"
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        poster={mainContent.image}
+        src={mainContent.video}
       >
         <ControlBar className="my-control-bar" />
       </Player>

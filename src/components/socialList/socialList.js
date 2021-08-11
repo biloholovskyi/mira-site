@@ -12,6 +12,7 @@ import telegram from "./media/telegram.svg";
 import ServerSettings from "../../service/serverSettings";
 
 const SocialList = () => {
+  const [socialLinks, setSocialLinks] = useState([]);
 
   const getSocialLinks = async () => {
     axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
@@ -29,7 +30,7 @@ const SocialList = () => {
     getSocialLinks().catch(error => console.error(error));
   }, [])
 
-	return (
+  return (
     <Style.Wrapper>
       {
         socialLinks.map((item, k) => {
@@ -41,7 +42,7 @@ const SocialList = () => {
         })
       }
     </Style.Wrapper>
-	)
+  )
 }
 
 export default SocialList

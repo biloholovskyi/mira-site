@@ -7,21 +7,22 @@ import FullScreenVideo from "./fullScreenVideo/fullScreenVideo";
 import * as Style from './styled'
 import play from './media/play.svg'
 
-const MainBlock = () => {
+const MainBlock = ({mainContent}) => {
   const [showVideo, setShowVideo] = useState(false);
 
   const showFullVideo = () => {
     setShowVideo(!showVideo)
   }
+const bgFon = mainContent.image;
 
   return (
     <Style.Wrapper>
-      <Style.ParalaxImg/>
+      <Style.ParalaxImg bgFon={bgFon}/>
       <Style.Gradient/>
       <Container>
         <Row>
           <Col lg={7}>
-            <Style.Title>Дарим финансовую независимость каждому</Style.Title>
+            <Style.Title>{mainContent.title}</Style.Title>
             <Style.ButtonsBlock>
               <MainButton
                 text={'Зарегистрироваться'}
@@ -49,6 +50,7 @@ const MainBlock = () => {
         showVideo && (
           <FullScreenVideo
             close={showFullVideo}
+            mainContent={mainContent}
           />
         )
       }

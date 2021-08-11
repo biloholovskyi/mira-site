@@ -110,6 +110,22 @@ const FooterBottom = styled.div`
         }
       }
       
+      & a:first-child {
+        margin-right: 5px;
+        &:after {
+          content: '/';
+          margin: 0 8px;
+          font-family: TT Interfaces, sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.005em;
+          color: #FFFFFF;
+          padding-left: 5px;
+        }
+      }
+      
       .delimit {
         margin: 0 8px;
         font-family: TT Interfaces, sans-serif;

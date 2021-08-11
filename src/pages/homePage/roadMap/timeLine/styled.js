@@ -97,6 +97,43 @@ const DotWrapper = styled.div`
     }
   }
   
+  & .dot:nth-child(2n){
+    .dotText {
+      top: -16px;
+      margin-top: -74px;
+      left: 50%;
+      margin-left: -100px;
+    }
+  }
+
+  & .dot:first-child {
+    background-color: #36B37E;
+
+    &::after {
+      content: '';
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: rgba(54, 179, 126, 0.2);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -12px;
+      margin-top: -12px;
+    }
+
+    &::before {
+      content: '';
+      height: 2px;
+      width: 100vw;
+      background-color: #36B37E;
+      position: absolute;
+      top: 50%;
+      margin-top: -1px;
+      margin-left: -100vw;
+    }
+  }
+  
   @media (max-width: 767px) {
     display: block;
     margin-top: 0;

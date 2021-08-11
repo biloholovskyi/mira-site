@@ -5,7 +5,7 @@ import * as Style from './styled'
 
 const DefaultTitle = ({text, style, media}) => {
   return (
-    <Style.Title style={style} media={media}>{HTMLReactParser(text)}</Style.Title>
+    <Style.Title style={style} media={media}>{text}</Style.Title>
   )
 }
 
