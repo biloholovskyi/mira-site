@@ -473,6 +473,8 @@ const News = () => {
         <Pagination style={{marginTop: 20}} pages={paginationPages} activePage={paginationPageActive} switchFunc={switchPage}/>
       </Style.Wrapper>
       {/*<Footer/>*/}
+      <div style={{display: 'none'}} id="tickers_top" />
+      <div style={{display: 'none'}} id="tickers_bottom" />
     </>
   )
 }

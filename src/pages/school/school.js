@@ -75,6 +75,8 @@ const School = () => {
       </Style.Wrapper>
 
       {/*<Footer/>*/}
+      <div style={{display: 'none'}} id="tickers_top" />
+      <div style={{display: 'none'}} id="tickers_bottom" />
     </>
   )
 }
