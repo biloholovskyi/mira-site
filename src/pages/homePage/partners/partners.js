@@ -8,7 +8,7 @@ import SliderItem from "./sliderItem/sliderItem";
 import * as Style from './styled'
 import axios from "axios";
 import ServerSettings from "../../../service/serverSettings";
-import './slider.scss'
+//import './slider.scss'
 
 const Partners = () => {
   const [slide, setSlide] =useState([]);

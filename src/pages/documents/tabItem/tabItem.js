@@ -5,11 +5,11 @@ import card from '../media/image/card.png';
 
 const TabItem = ({item}) => {
   return (
-    <Style.TabItemWrap download href={item.image}>
-      <img src={item.image} alt="image" className={'card_img'}/>
+    <Style.TabItemWrap download href={item.file} target={'_blank'}>
+      <img src={item.file} alt="image" className={'card_img'}/>
       <div className="info">
-        <div className="name">{item.title}</div>
-        <div className="size">{item.format}<div className="circle" />{item.size}</div>
+        <div className="name">{item.name}</div>
+        <div className="size">{item.format}<div className="circle" />{item.file.name}</div>
       </div>
     </Style.TabItemWrap>
   )

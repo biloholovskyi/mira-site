@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Container, Row, Col} from "react-bootstrap";
 
 import Footer from "../../components/footer/footer";
@@ -7,8 +7,27 @@ import SocialList from "../../components/socialList/socialList";
 import ContactsForm from "./contactsForm/contactsForm";
 
  import * as Style from './styled'
+import axios from "axios";
+import ServerSettings from "../../service/serverSettings";
 
 const Contacts = () => {
+  const [contacts, setContacts] = useState({});
+
+  const getAllContacts = async () => {
+    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    axios.defaults.xsrfCookieName = 'csrftoken';
+
+    const server = new ServerSettings();
+
+    await axios.get(`${server.getApi()}api/contacts/`)
+      .then(res => {
+        setContacts(res.data)
+      }).catch(error => console.error(error))
+  }
+
+  useEffect(() => {
+    getAllContacts().catch(error => console.error(error));
+  }, [])
 	return (
 	  <>
       <Style.Wrapper>
@@ -18,25 +37,16 @@ const Contacts = () => {
               <DefaultTitle text={'Контакты'}/>
 
               <Style.ContactsBlock>
-                <div className="item">
-                  <div className="name">Партнерам</div>
-                  <a href={'mailto:partners@mira.com'} className="contact">partners@mira.com</a>
-                </div>
-
-                <div className="item">
-                  <div className="name">Поддержка</div>
-                  <a href={'mailto:support@mira.com'} className="contact">support@mira.com</a>
-                </div>
-
-                <div className="item">
-                  <div className="name">СМИ и реклама</div>
-                  <a href={'mailto:media@mira.com'} className="contact">media@mira.com</a>
-                </div>
-
-                <div className="item">
-                  <div className="name">Другие вопросы</div>
-                  <a href={'mailto:hello@mira.com'} className="contact">hello@mira.com</a>
-                </div>
+                {
+                  contacts.map((item ,key) => {
+                    return (
+                      <div key={key} className="item">
+                        <div className="name">{item.name}</div>
+                        <a href={`mailto:${item.link}`} className="contact">{item.link}</a>
+                      </div>
+                    )
+                  })
+                }
 
                 <div className="item item--social">
                   <div className="name">Наши соцсети</div>
