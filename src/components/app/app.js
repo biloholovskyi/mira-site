@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Route, Switch} from "react-router";
+import {Route, Switch, Redirect} from "react-router";
 
 import Header from "../header/header";
 import HomePage from "../../pages/homePage/homePage";
@@ -25,7 +25,12 @@ const App = () => {
         <Route path={'/documents'} exact component={Documents}/>
         <Route path={'/contacts'} exact component={Contacts}/>
         <Route path={'/school'} exact component={School}/>
-        <Route path={'/singleNews'} exact component={SingleNews}/>
+        <Route path='/singleNews/:id' render={
+          ({match}) => {
+            const {id} = match.params;
+            return <SingleNews newsId={id}/>;
+          }
+        }/>
       </Switch>
 
       <Footer />

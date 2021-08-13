@@ -5,10 +5,10 @@ import * as Style from './styled'
 const FooterNav = () => {
   return (
     <Style.Nav>
-      <Style.Item href={'#'}>О проекте</Style.Item>
-      <Style.Item href={'#'}>Новости</Style.Item>
-      <Style.Item href={'#'}>Школа инвестирования</Style.Item>
-      <Style.Item href={'#'}>Контакты</Style.Item>
+      <Style.Item href={'/about'}>О проекте</Style.Item>
+      <Style.Item href={'/news'}>Новости</Style.Item>
+      <Style.Item href={'/school'}>Школа инвестирования</Style.Item>
+      <Style.Item href={'/contacts'}>Контакты</Style.Item>
     </Style.Nav>
   )
 }

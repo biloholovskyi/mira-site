@@ -11,7 +11,7 @@ import axios from "axios";
 import ServerSettings from "../../service/serverSettings";
 
 const Contacts = () => {
-  const [contacts, setContacts] = useState({});
+  const [contacts, setContacts] = useState([]);
 
   const getAllContacts = async () => {
     axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
@@ -28,6 +28,7 @@ const Contacts = () => {
   useEffect(() => {
     getAllContacts().catch(error => console.error(error));
   }, [])
+
 	return (
 	  <>
       <Style.Wrapper>

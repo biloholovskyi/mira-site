@@ -21,6 +21,8 @@ const Cart = styled(NavLink)`
     letter-spacing: 0.01em;
     color: #FFFFFF;
     margin-bottom: 16px;
+    text-transform: lowercase;
+    min-height: 48px;
   }
   
   .date {

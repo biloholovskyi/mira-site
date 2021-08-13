@@ -28,14 +28,11 @@ const Documents = () => {
     await axios.get(`${server.getApi()}api/categories/`)
       .then(res => {
         setCatName(res.data)
+        const findCat = res.data.find(u => u.name === tabStatus);
+        setCurrentCat(findCat)
       }).catch(error => console.error(error))
   }
-
-  useEffect(() => {
-    const findCat = catName.find(u => u.name === tabStatus);
-    setCurrentCat(findCat)
-  })
-
+  
   useEffect(() => {
     getDocCategories().catch(error => console.error(error));
   }, [])
@@ -101,9 +98,7 @@ const Documents = () => {
                         files.map((item, key) => {
                           if (item.doc_cat === currentCat.id) {
                             return (
-
                               <TabItem key={key} item={item}/>
-
                             )
                           }
                         })
