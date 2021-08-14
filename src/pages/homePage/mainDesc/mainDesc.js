@@ -5,14 +5,6 @@ import DefaultTitle from "../../../components/defaultTitle/defaultTitle";
 
 import * as Style from './styled'
 
-import tickers from './media/tickers.svg'
-import tickers1 from './media/tickers1.svg'
-import tickers2 from './media/tickers2.svg'
-import tickers3 from './media/tickers3.svg'
-import tickers4 from './media/tickers4.svg'
-import tickers5 from './media/tickers5.svg'
-import tickers6 from './media/tickers6.svg'
-
 const MainDesc = ({mainContent}) => {
   return (
     <Style.Wrapper className={'content-block'}>
@@ -29,18 +21,21 @@ const MainDesc = ({mainContent}) => {
           </Col>
         </Row>
       </Container>
+
       <div className="tickers">
         <div className="top" id={'tickers_top'}>
-          <img src={tickers1} alt="tickers" className={'tickers-item'}/>
-          <img src={tickers2} alt="tickers" className={'tickers-item'}/>
-          <img src={tickers3} alt="tickers" className={'tickers-item'}/>
+          <div className="tickers-item">DEEX</div>
+          <div className="tickers-item">Canyon River</div>
+          <div className="tickers-item">Binance</div>
+          <div className="tickers-item">MOEX</div>
         </div>
         <div className="bottom" id={'tickers_bottom'}>
-          <img src={tickers6} alt="tickers" className={'tickers-item'}/>
-          <img src={tickers4} alt="tickers" className={'tickers-item'}/>
-          <img src={tickers5} alt="tickers" className={'tickers-item'}/>
+          <div className="tickers-item">NYSE</div>
+          <div className="tickers-item">Interactive Brokers</div>
+          <div className="tickers-item">Tickmill</div>
         </div>
       </div>
+
     </Style.Wrapper>
   )
 }

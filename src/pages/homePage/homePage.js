@@ -11,12 +11,7 @@ import Partners from "./partners/partners";
 
 import * as Style from './styled'
 
-import imgDeposit from './media/image.png'
-import imgPhone from './media/image-phone2.png'
-import imgPhoneSmall from './media/image-phone-small.png'
 import fire from './media/fire.svg'
-import imgEstate from './media/image-estate2.png'
-import imgEstateSmall from './media/image-estate-small.png'
 import axios from "axios";
 import ServerSettings from "../../service/serverSettings";
 
@@ -300,7 +295,7 @@ const HomePage = () => {
 
       {/*<Partners/>*/}
 
-      {/*<Footer/>*/}
+      <Footer/>
     </Style.Wrapper>
   )
 }
