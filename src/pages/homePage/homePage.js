@@ -298,7 +298,7 @@ const HomePage = () => {
 
       <RoadMap/>
 
-      <Partners/>
+      {/*<Partners/>*/}
 
       {/*<Footer/>*/}
     </Style.Wrapper>
