@@ -17,7 +17,6 @@ const ContactsForm = () => {
           mb={'32px'}
           type={'text'}
         />
-
         <MainInput
           label={'Ваш Email'}
           name={'email'}
@@ -33,7 +32,7 @@ const ContactsForm = () => {
           mb={'32px'}
         />
 
-        <div className="form-text">Нажимая «Отправить», вы соглашаетесь предоставить Вашу информацию ООО "МИРА" на обработку.</div>
+        <div className="form-text">Нажимая кнопку “Отправить” вы принимаете условия соглашения и политики обработки персональных данных</div>
 
         <button className={'form-button'} type={'submit'}>Зарегистрироваться</button>
       </Style.Form>
