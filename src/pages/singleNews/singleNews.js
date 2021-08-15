@@ -41,24 +41,7 @@ const SingleNews = ({newsId}) => {
           </Row>
           <Row>
             <Col>
-              <Text>
-                <p>
-                  {currentNews.text}
-                </p>
-                {/*<ul>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*</ul>*/}
-                {/*<DefaultTitle text={'9 советов онлайн'} style={{marginBottom: 15, fontSize: 16}}/>*/}
-                {/*<ol>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*  <li>Lorem Ipsum passages</li>*/}
-                {/*</ol>*/}
-              </Text>
+              <Text dangerouslySetInnerHTML={{ __html: currentNews.text }}/>
             </Col>
           </Row>
         </Container>

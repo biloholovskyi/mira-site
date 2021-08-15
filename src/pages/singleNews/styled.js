@@ -8,23 +8,24 @@ const SingleNewsWrap = styled.div`
 `
 
 const Text = styled.p`
-  p {
-    font-family: TT Interfaces,sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 28px;
+  * {
+    font-family: TT Interfaces, sans-serif;
     letter-spacing: 0.01em;
     color: #FFFFFF;
     padding-bottom: 20px;
   }
+  
+  p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
   ul, ol {
     padding-left: 20px;
     padding-bottom: 20px;
+
     li {
-      font-family: TT Interfaces,sans-serif;
-      font-style: normal;
-      font-weight: normal;
+      font-family: TT Interfaces, sans-serif;
       font-size: 18px;
       line-height: 28px;
       letter-spacing: 0.01em;
