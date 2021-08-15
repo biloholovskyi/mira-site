@@ -144,14 +144,14 @@ const DotWrapper = styled.div`
       
       &:before {
         content: '';
-        height: 66px;
-        width: 2px;
-        background-color: #373737;
-        position: absolute;
-        top: 18px;
-        margin-top: 0;
-        left: 50%;
-        margin-left: -1px;
+        height: 66px !important;
+        width: 2px !important;
+        background-color: #373737 !important;
+        position: absolute !important;
+        top: 18px !important;
+        margin-top: 0 !important;
+        left: 50% !important;
+        margin-left: -1px !important;
       }
       
       &:last-child {
@@ -162,12 +162,13 @@ const DotWrapper = styled.div`
         }
       }
       
-      .dotText {
+      .dotText,
+      &.dot-top .dotText {
         width: 100vw;
-        top: 50%;
-        margin-top: -24px;
-        left: 40px;
-        margin-left: 0;
+        top: 50% !important;
+        margin-top: -24px !important;
+        left: 40px !important;
+        margin-left: 0 !important;
         text-align: left;
       }
     }

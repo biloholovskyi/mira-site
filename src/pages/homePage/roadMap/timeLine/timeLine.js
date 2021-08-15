@@ -23,6 +23,7 @@ const TimeLine = () => {
   useEffect(() => {
     getRoadMap().catch(error => console.error(error));
   }, [])
+
   return (
     <Style.Wrapper>
       <Style.Line/>
@@ -33,8 +34,11 @@ const TimeLine = () => {
             <Style.DotWrapper>
               {
                 roadMap.map((item, k) => {
+                  const active = k === 0 && 'dot--active';
+                  const top = k % 2 && 'dot--top';
+
                   return (
-                    <div key={k} className="dot">
+                    <div key={k} className={`dot ${active} ${top}`}>
                       <div className="dotText">
                         <div className="name">{item.date}</div>
                         <div className="text">{item.title}</div>
@@ -43,42 +47,6 @@ const TimeLine = () => {
                   )
                 })
               }
-              {/*<div className="dot dot--active">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Август 2021</div>*/}
-              {/*    <div className="text">Запуск платформы Mira</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className="dot dot--top">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Сентябрь 2021</div>*/}
-              {/*    <div className="text">Открытие Mira University</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className="dot">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Октябрь 2021</div>*/}
-              {/*    <div className="text">Запуск авто/квартирной программы</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className="dot dot--top">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Сентябрь 2021</div>*/}
-              {/*    <div className="text">Запуск мобильных приложений MIRA</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className="dot">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Декабрь 2021</div>*/}
-              {/*    <div className="text">Открытие MIRA Market</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
-              {/*<div className="dot dot--top">*/}
-              {/*  <div className="dotText">*/}
-              {/*    <div className="name">Январь 2021</div>*/}
-              {/*    <div className="text">Запуск MIRANET</div>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
             </Style.DotWrapper>
           </Col>
         </Row>
