@@ -1,17 +1,64 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Container, Row, Col} from "react-bootstrap";
+import axios from "axios";
 
-import AllCategoryTab from './allCategoryTab/allCategoryTab';
 import MainTextArea from "./selfComponents/mainTextArea/mainTextArea";
 import MainButton from "./selfComponents/mainButton/mainButton";
 import SearchPanel from './searchPanel/searchPanel';
-import CategoryTab1 from './categoryTab1/categoryTab1';
-import CategoryTab2 from './categoryTab2/categoryTab2';
+import SingleTab from "./singleTab/singleTab";
 
 import {FaqWrap, TabHead, TabBody, AddQuestion} from './styled';
 
+import ServerSettings from "../../service/serverSettings";
+const api = new ServerSettings();
+
 const Faq = () => {
+
+  const [tabs, setTabs] = useState([]);
+  const [questions, setQuestions] = useState([])
   const [tabStatus, setTabStatus] = useState('all');
+
+  useEffect(() => {
+    getAllCategory().catch(error => console.error(error))
+  }, [])
+
+
+  useEffect(() => {
+    // если активны все категории выводим все вопросы
+    if(tabStatus === 'all') {
+      let questionsList = []
+
+      tabs.forEach(tab => {
+        questionsList = [...questionsList, ...tab.questions]
+      })
+
+      setQuestions(questionsList);
+    } else {
+      // находим список вопросов по id категории
+      const index = tabs.findIndex(tab => parseInt(tab.id) === parseInt(tabStatus));
+
+      if(index > -1) {
+        setQuestions(tabs[index].questions)
+      }
+    }
+  }, [tabStatus])
+
+  // список табов
+  const tabsName = tabs.map(item => {
+    return (
+      <button
+        key={item.id}
+        onClick={(e) => changeTab(e, item.id)}
+      >
+        {item.name}
+      </button>
+    )
+  })
+
+  // список вопросов
+  const questionsRender = questions.map((question, key) => {
+    return <SingleTab key={key} question={question}/>
+  })
 
   // change allCategoryTab
   const changeTab = (e, tab) => { 
@@ -19,6 +66,15 @@ const Faq = () => {
     document.querySelector('.btn-active').classList.remove('btn-active');
     e.target.classList.add('btn-active');
   };
+
+  // получаем список всех категорий
+  const getAllCategory = async () => {
+    axios.get(`${api.getApi()}api/faq/`)
+      .then(res => {
+        setTabs(res.data)
+      })
+      .catch(error => console.error(error))
+  }
 
   return(
     <Container>
@@ -30,19 +86,10 @@ const Faq = () => {
 
             <TabHead>
               <button onClick={(e) => changeTab(e, 'all')} className={'btn-active'}>Все категории</button>
-              <button onClick={(e) => changeTab(e, 'category_1')}>Категория 1</button>
-              <button onClick={(e) => changeTab(e, 'category_2')}>Категория 2</button>
+              {tabsName}
             </TabHead>
             <TabBody>
-              {
-                tabStatus === 'all'
-                  ? <AllCategoryTab/>
-                  :  tabStatus === 'category_1'
-                  ? <CategoryTab1/>
-                  : tabStatus === 'category_2'
-                    ? <CategoryTab2/>
-                    : null
-              }
+              {questionsRender}
             </TabBody>
             <AddQuestion>
               <div className="title">Остались вопросы? Напишите нам</div>
