@@ -65,7 +65,10 @@ const School = () => {
   return (
     <>
       <Style.Wrapper>
-        <SchoolHeader setSearchTerm={setSearchTerm}/>
+        <SchoolHeader
+          setSearchTerm={setSearchTerm}
+          title={'Школа инвестирования'}
+        />
 
         <SchoolContent
           data={schoolInfo}

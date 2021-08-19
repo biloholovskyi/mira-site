@@ -7,13 +7,13 @@ import * as Style from './styled'
 import search from './media/search.svg'
 import {Container, Row, Col} from "react-bootstrap";
 
-const SchoolHeader = ({setSearchTerm}) => {
+const SchoolHeader = ({setSearchTerm, title}) => {
 	return (
 		<Style.Wrapper>
      <Container>
        <Row>
         <Col>
-          <h2 className="school-title">Школа инвестирования</h2>
+          <h2 className="school-title">{title}</h2>
 
           <MainInput
             style={{

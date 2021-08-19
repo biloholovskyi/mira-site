@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Container, Row, Col} from "react-bootstrap";
 
 import * as Style from './styled'
 
-const SchoolContent = ({data, searchTerm, setSearchTerm}) => {
+const SchoolContent = ({data, searchTerm, setSearchTerm, tabs}) => {
   const [tabStatus, setTabStatus] = useState('all')
   const [catName, setCatName] = useState([
     {name: 'cat1'},
@@ -22,6 +22,12 @@ const SchoolContent = ({data, searchTerm, setSearchTerm}) => {
   const openAccordItem = (e) => {
     e.currentTarget.classList.toggle('open')
   }
+
+  useEffect(() => {
+    if(tabs && tabs.length > 0) {
+      setCatName(tabs)
+    }
+  }, [tabs])
 
   return (
     <Style.Wrapper>
