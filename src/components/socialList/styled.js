@@ -3,6 +3,12 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  margin-right: 16px;
+  
+  &:last-child {
+    margin-right: 0;
+  }
 
   @media (max-width: 575px) {
     margin-bottom: 32px;
@@ -32,7 +38,14 @@ const Item = styled.a`
   }
 `
 
+const FlexWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`
+
 export {
   Wrapper,
-  Item
+  Item,
+  FlexWrapper
 }

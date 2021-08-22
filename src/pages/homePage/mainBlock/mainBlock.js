@@ -6,6 +6,7 @@ import FullScreenVideo from "./fullScreenVideo/fullScreenVideo";
 
 import * as Style from './styled'
 import play from './media/play.svg'
+import bgFon from './media/bg.jpg'
 
 const MainBlock = ({mainContent}) => {
   const [showVideo, setShowVideo] = useState(false);
@@ -13,23 +14,23 @@ const MainBlock = ({mainContent}) => {
   const showFullVideo = () => {
     setShowVideo(!showVideo)
   }
-const bgFon = mainContent.image;
 
   return (
     <Style.Wrapper>
-      {/*<Style.ParalaxImg bgFon={bgFon}/>*/}
-      <FullScreenVideo
-        close={showFullVideo}
-        mainContent={mainContent}
-        main
-      />
+      <Style.ParalaxImg bgFon={bgFon}/>
+      {/*<FullScreenVideo*/}
+      {/*  close={showFullVideo}*/}
+      {/*  mainContent={mainContent}*/}
+      {/*  main*/}
+      {/*/>*/}
       <Style.Gradient/>
       <Container>
         <Row>
           <Col lg={7}>
-            <Style.Title>{mainContent.title}</Style.Title>
+            <Style.Title>Дарим финансовую независимость каждому</Style.Title>
             <Style.ButtonsBlock>
               <MainButton
+                func={() => window.open('https://www.mira.fund')}
                 text={'Зарегистрироваться'}
                 type={'lg'}
                 media={
@@ -41,12 +42,12 @@ const bgFon = mainContent.image;
                   `
                 }
               />
-              <Style.WatchButton
-                onClick={showFullVideo}
-              >
-                <img src={play} alt="play"/>
-                <div className="text">Смотреть видео</div>
-              </Style.WatchButton>
+              {/*<Style.WatchButton*/}
+              {/*  onClick={showFullVideo}*/}
+              {/*>*/}
+              {/*  <img src={play} alt="play"/>*/}
+              {/*  <div className="text">Смотреть видео</div>*/}
+              {/*</Style.WatchButton>*/}
             </Style.ButtonsBlock>
           </Col>
         </Row>

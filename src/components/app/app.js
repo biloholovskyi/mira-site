@@ -20,17 +20,17 @@ const App = () => {
 
       <Switch>
         <Route path={'/'} exact component={HomePage}/>
-        <Route path={'/news'} exact component={News}/>
-        <Route path={'/faq'} exact component={Faq}/>
-        <Route path={'/documents'} exact component={Documents}/>
-        <Route path={'/contacts'} exact component={Contacts}/>
-        <Route path={'/school'} exact component={School}/>
-        <Route path='/singleNews/:id' render={
-          ({match}) => {
-            const {id} = match.params;
-            return <SingleNews newsId={id}/>;
-          }
-        }/>
+        {/*<Route path={'/news'} exact component={News}/>*/}
+        {/*<Route path={'/faq'} exact component={Faq}/>*/}
+        {/*<Route path={'/documents'} exact component={Documents}/>*/}
+        {/*<Route path={'/contacts'} exact component={Contacts}/>*/}
+        {/*<Route path={'/school'} exact component={School}/>*/}
+        {/*<Route path='/singleNews/:id' render={*/}
+        {/*  ({match}) => {*/}
+        {/*    const {id} = match.params;*/}
+        {/*    return <SingleNews newsId={id}/>;*/}
+        {/*  }*/}
+        {/*}/>*/}
       </Switch>
 
       <Footer />

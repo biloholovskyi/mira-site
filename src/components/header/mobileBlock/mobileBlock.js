@@ -13,16 +13,16 @@ const MobileBlock = () => {
 
   return (
     <Style.Wrapper show={mobileMenu}>
-      <div className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>
-        <div className="item"/>
-        <div className="item"/>
-        <div className="item"/>
-      </div>
-      <div className="delimiter"/>
+      {/*<div className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>*/}
+      {/*  <div className="item"/>*/}
+      {/*  <div className="item"/>*/}
+      {/*  <div className="item"/>*/}
+      {/*</div>*/}
+      {/*<div className="delimiter"/>*/}
 
-      {
-        mobileMenu && <MobileMenu updateMobileMenu={updateMobileMenu}/>
-      }
+      {/*{*/}
+      {/*  mobileMenu && <MobileMenu updateMobileMenu={updateMobileMenu}/>*/}
+      {/*}*/}
     </Style.Wrapper>
   )
 }

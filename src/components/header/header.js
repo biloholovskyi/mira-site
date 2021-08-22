@@ -29,7 +29,7 @@ const Header = () => {
     <Style.HeaderWrapper fixedHeader={header}>
       <MobileBlock/>
       <Logo/>
-      <Menu fixedHeader={header}/>
+      {/*<Menu fixedHeader={header}/>*/}
       <ButtonsBlock/>
     </Style.HeaderWrapper>
   )

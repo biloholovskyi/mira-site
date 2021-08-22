@@ -7,8 +7,8 @@ import * as Style from './styled'
 const ButtonsBlock = () => {
   return (
     <Style.Wrapper>
-      <button className="enter">Войти</button>
-      <MainButton text={'Зарегистрироваться'}/>
+      <button className="enter" onClick={() => window.open('https://www.mira.fund')}>Войти</button>
+      <MainButton func={() => window.open('https://www.mira.fund')} text={'Зарегистрироваться'}/>
     </Style.Wrapper>
   )
 }

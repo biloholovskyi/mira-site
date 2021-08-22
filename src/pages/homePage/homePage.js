@@ -15,6 +15,14 @@ import fire from './media/fire.svg'
 import axios from "axios";
 import ServerSettings from "../../service/serverSettings";
 
+import depositFon from './media/image.png'
+import autoFon from './media/image-phone.png'
+import autoFon2 from './media/image-phone-small.png'
+import autoFon3 from './media/image-phone2.png'
+import estate from './media/image-estate.png'
+import estate2 from './media/image-estate2.png'
+import estate3 from './media/image-estate-small.png'
+
 const HomePage = () => {
   const [mainContent, setMainContent] = useState({});
   const [miraDeposit, setMiraDeposit] = useState({});
@@ -56,7 +64,7 @@ const HomePage = () => {
   }, [])
 
   const listenScrollEvent = (event) => {
-    if(window.scrollY > 300) {
+    if (window.scrollY > 300) {
       const tickerTop = document.getElementById('tickers_top')
       const tickerBottom = document.getElementById('tickers_bottom')
       tickerTop.style.transform = 'translateX(' + window.scrollY * -0.1 + 'px)';
@@ -93,43 +101,32 @@ const HomePage = () => {
 
       <>
         {/* mira deposit */}
-        <Style.TextAndImage  className={'content-block'}>
+        <Style.TextAndImage className={'content-block'}>
           <Container>
             <Row>
               <Col lg={6}>
                 <div className="text">
-                  {
-                    miraDeposit.announcement === 'True' && (
-                      <div className="fast">
-                        <img src={fire} alt="fire"/>
-                        <div className="fast-text">Скоро</div>
-                      </div>
-                    )
-                  }
 
                   <DefaultTitle
-                    text={miraDeposit.title}
+                    text='Mira deposit'
                     style={{
                       marginBottom: '40px'
                     }}
                   />
 
-                  <p className="desc">{miraDeposit.short_text}</p>
+                  <p className="desc">Первые начисления дивидендов поступают через 72 часа по МСК после ввода депозита в
+                    работу. Сумма депозита от 100$. По истечению 1 года программа заканчивает свою работу и ежедневные
+                    проценты перестают начисляться Позже будет доступен лимит по депозитам на суммы $15 000, $20 000,
+                    $35000, $50 000, $100 000</p>
 
-                  <h4 className="small-title">{miraDeposit.title_conditions}</h4>
 
-                  {
-                    miraDeposit.list_conditions && miraDeposit.list_conditions.split('\n').map(item => {
-                      return <div className="item">{item}</div>
-                    })
-                  }
 
                   <div className="info">
                     {
                       miraDeposit.sum !== null && (
                         <div className="info-item">
                           <div className="name">Сумма депозита</div>
-                          <div className="value">от ${miraDeposit.sum}</div>
+                          <div className="value">от $100</div>
                         </div>
                       )
                     }
@@ -137,12 +134,13 @@ const HomePage = () => {
                       miraDeposit.rate !== null && (
                         <div className="info-item">
                           <div className="name">Ставка</div>
-                          <div className="value">до {miraDeposit.rate}%</div>
+                          <div className="value">до 0.8-1.1%</div>
                         </div>
                       )
                     }
 
                     <MainButton
+                      func={() => window.open('https://www.mira.fund')}
                       text={'Оформить программу'}
                       type={'lg'}
                       media={
@@ -159,7 +157,7 @@ const HomePage = () => {
               </Col>
               <Col lg={6}>
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={miraDeposit.img} alt="image" className="image image-first" id={'first'}/>
+                <img src={depositFon} alt="image" className="image image-first" id={'first'}/>
               </Col>
             </Row>
           </Container>
@@ -172,37 +170,25 @@ const HomePage = () => {
             <Row>
               <Col lg={6} className={'col-relative col-own'}>
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={miraAuto.small_img} alt="image" className="image-small" id={'small'}/>
-                <img src={miraAuto.img} alt="image" className="image image-phone" id={'second'}/>
+                <img src={autoFon2} alt="image" className="image-small" id={'small'}/>
+                <img src={autoFon} alt="image" className="image image-phone" id={'second'}/>
               </Col>
 
               <Col lg={6}>
                 <div className="text">
-                  {
-                    miraAuto.announcement === 'True' && (
-                      <div className="fast">
-                        <img src={fire} alt="fire"/>
-                        <div className="fast-text">Скоро</div>
-                      </div>
-                    )
-                  }
+                  <div className="fast">
+                    <img src={fire} alt="fire"/>
+                    <div className="fast-text">Скоро</div>
+                  </div>
 
                   <DefaultTitle
-                    text={miraAuto.title}
+                    text={'Mira AUTO'}
                     style={{
                       marginBottom: '40px'
                     }}
                   />
 
-                  <p className="desc">{miraAuto.short_text}</p>
-
-                  <h4 className="small-title">{miraAuto.title_conditions}</h4>
-
-                  {
-                    miraAuto.list_conditions && miraAuto.list_conditions.split('\n').map(item => {
-                      return <div className="item">{item}</div>
-                    })
-                  }
+                  <p className="desc">{'Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести автомобиль за 35% от его розничной стоимости в течение 100 дней.'}</p>
 
                   <div className="info">
                     <div className="info-item">
@@ -216,6 +202,7 @@ const HomePage = () => {
                     </div>
 
                     <MainButton
+                      func={() => window.open('https://www.mira.fund')}
                       text={'Оформить программу'}
                       type={'lg'}
                       media={
@@ -241,49 +228,37 @@ const HomePage = () => {
             <Row>
               <Col lg={6}>
                 <div className="text">
-                  {
-                    miraEstate.announcement === 'True' && (
-                      <div className="fast">
-                        <img src={fire} alt="fire"/>
-                        <div className="fast-text">Скоро</div>
-                      </div>
-                    )
-                  }
+                  <div className="fast">
+                    <img src={fire} alt="fire"/>
+                    <div className="fast-text">Скоро</div>
+                  </div>
 
                   <DefaultTitle
-                    text={miraEstate.title}
+                    text={'Mira estate'}
                     style={{
                       marginBottom: '40px'
                     }}
                   />
 
-                  <p className="desc">{miraEstate.short_text}</p>
-
-                  <h4 className="small-title">{miraEstate.title_conditions}</h4>
-
-                  {
-                    miraEstate.list_conditions && miraEstate.list_conditions.split('\n').map(item => {
-                      return <div className="item">{item}</div>
-                    })
-                  }
+                  <p className="desc">{'Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете приобрести квартиру/дом своей мечты за 35% от цены в течение всего 100 дней.'}</p>
 
                   <div className="info info-start">
                     <div className="info-item">
                       <div className="name">Первый взнос</div>
-                      <div className="value">{miraEstate.first_installment}%</div>
+                      <div className="value">от 30%</div>
                     </div>
 
                     <div className="info-item">
                       <div className="name">Срок получения</div>
-                      <div className="value">{miraEstate.term}</div>
+                      <div className="value">100 дней</div>
                     </div>
                   </div>
                 </div>
               </Col>
               <Col lg={6}>
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                <img src={miraEstate.small_img} alt="image" className="image-small-keys" id={'small2'}/>
-                <img src={miraEstate.img} alt="image" className="image image-third" id={'third'}/>
+                <img src={estate3} alt="image" className="image-small-keys" id={'small2'}/>
+                <img src={estate} alt="image" className="image image-third" id={'third'}/>
               </Col>
             </Row>
           </Container>

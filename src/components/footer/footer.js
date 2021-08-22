@@ -74,11 +74,12 @@ const Footer = () => {
                     height: 29.98px; 
                   `
                 }}/>
-                <FooterNav/>
+                {/*<FooterNav/>*/}
               </Style.FooterNavWrapper>
               <Style.FooterRightBlock>
                 <h3>Начните зарабатывать вместе с Mira</h3>
                 <MainButton
+                  func={() => window.open('https://www.mira.fund')}
                   text={'Зарегистрироваться'}
                   type={'lg'}
                   media={
