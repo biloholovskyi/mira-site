@@ -17,7 +17,26 @@ const HeaderWrapper = styled.header`
     background: #121212;
     padding: 16px;
     margin-top: 0;
-    justify-content: flex-start;
+    //justify-content: flex-start;
+    justify-content: space-between;
+  }
+  
+  .enter-mobile {
+    display: none;
+
+    @media (max-width: 1130px) {
+      display: block;
+      font-family: TT Interfaces, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.005em;
+      color: #FFFFFF;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
 `
 

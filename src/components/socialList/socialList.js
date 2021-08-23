@@ -48,8 +48,14 @@ const SocialList = () => {
       </Style.Wrapper>
 
       <Style.Wrapper>
-        <Style.Item href={'https://www.instagram.com/mira_company.ru/?utm_medium=copy_link\n'} target={'_blank'}>
+        <Style.Item href={'https://www.instagram.com/mira_company.ru/?utm_medium=copy_link'} target={'_blank'}>
           <img src={inst} alt="social"/>
+        </Style.Item>
+      </Style.Wrapper>
+
+      <Style.Wrapper>
+        <Style.Item href={'http://t.me/miracompany_bot'} target={'_blank'}>
+          <img src={telegram} alt="social"/>
         </Style.Item>
       </Style.Wrapper>
     </Style.FlexWrapper>

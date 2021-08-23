@@ -5,15 +5,11 @@ import MainBlock from "./mainBlock/mainBlock";
 import MainDesc from "./mainDesc/mainDesc";
 import DefaultTitle from "../../components/defaultTitle/defaultTitle";
 import MainButton from "../../components/buttons/mainButton/mainButton";
-import Footer from "../../components/footer/footer";
 import RoadMap from "./roadMap/roadMap";
-import Partners from "./partners/partners";
 
 import * as Style from './styled'
 
 import fire from './media/fire.svg'
-import axios from "axios";
-import ServerSettings from "../../service/serverSettings";
 
 import depositFon from './media/image.png'
 import autoFon from './media/image-phone.png'
@@ -24,45 +20,6 @@ import estate2 from './media/image-estate2.png'
 import estate3 from './media/image-estate-small.png'
 
 const HomePage = () => {
-  const [mainContent, setMainContent] = useState({});
-  const [miraDeposit, setMiraDeposit] = useState({});
-  const [miraAuto, setMiraAuto] = useState({});
-  const [miraEstate, setMiraEstate] = useState({});
-
-  const getMainContent = async () => {
-    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-    axios.defaults.xsrfCookieName = 'csrftoken';
-
-    const server = new ServerSettings();
-
-    await axios.get(`${server.getApi()}api/main/`)
-      .then(res => {
-        setMainContent(res.data[0])
-      }).catch(error => console.error(error))
-  }
-
-  useEffect(() => {
-    getMainContent().catch(error => console.error(error));
-  }, [])
-
-  const getAllPrograms = async () => {
-    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-    axios.defaults.xsrfCookieName = 'csrftoken';
-
-    const server = new ServerSettings();
-
-    await axios.get(`${server.getApi()}api/programs/`)
-      .then(res => {
-        setMiraDeposit(res.data[0])
-        setMiraAuto(res.data[1])
-        setMiraEstate(res.data[2])
-      }).catch(error => console.error(error))
-  }
-
-  useEffect(() => {
-    getAllPrograms().catch(error => console.error(error));
-  }, [])
-
   const listenScrollEvent = (event) => {
     if (window.scrollY > 300) {
       const tickerTop = document.getElementById('tickers_top')
@@ -96,8 +53,8 @@ const HomePage = () => {
 
   return (
     <Style.Wrapper>
-      <MainBlock mainContent={mainContent}/>
-      <MainDesc mainContent={mainContent}/>
+      <MainBlock/>
+      <MainDesc/>
 
       <>
         {/* mira deposit */}
@@ -116,28 +73,21 @@ const HomePage = () => {
 
                   <p className="desc">Первые начисления дивидендов поступают через 72 часа по МСК после ввода депозита в
                     работу. Сумма депозита от 100$. По истечению 1 года программа заканчивает свою работу и ежедневные
-                    проценты перестают начисляться Позже будет доступен лимит по депозитам на суммы $15 000, $20 000,
+                    проценты перестают начисляться. Позже будет доступен лимит по депозитам на суммы $15 000, $20 000,
                     $35000, $50 000, $100 000</p>
 
 
 
                   <div className="info">
-                    {
-                      miraDeposit.sum !== null && (
-                        <div className="info-item">
-                          <div className="name">Сумма депозита</div>
-                          <div className="value">от $100</div>
-                        </div>
-                      )
-                    }
-                    {
-                      miraDeposit.rate !== null && (
-                        <div className="info-item">
-                          <div className="name">Ставка</div>
-                          <div className="value">до 0.8-1.1%</div>
-                        </div>
-                      )
-                    }
+                    <div className="info-item">
+                      <div className="name">Сумма депозита</div>
+                      <div className="value">от $100</div>
+                    </div>
+
+                    <div className="info-item">
+                      <div className="name">Ставка</div>
+                      <div className="value">до 0.8-1.1%</div>
+                    </div>
 
                     <MainButton
                       func={() => window.open('https://www.mira.fund')}
@@ -188,32 +138,32 @@ const HomePage = () => {
                     }}
                   />
 
-                  <p className="desc">{'Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести автомобиль за 35% от его розничной стоимости в течение 100 дней.'}</p>
+                  <p className="desc">{'Компания MIRA предлагает авто-программу MIRA Auto, по которой вы сможете приобрести автомобиль за 35% от его розничной стоимости.'}</p>
 
                   <div className="info">
-                    <div className="info-item">
-                      <div className="name">Первый взнос</div>
-                      <div className="value">от 30%</div>
-                    </div>
+                    {/*<div className="info-item">*/}
+                    {/*  <div className="name">Первый взнос</div>*/}
+                    {/*  <div className="value">от 30%</div>*/}
+                    {/*</div>*/}
 
-                    <div className="info-item">
-                      <div className="name">Срок получения</div>
-                      <div className="value">100 дней</div>
-                    </div>
+                    {/*<div className="info-item">*/}
+                    {/*  <div className="name">Срок получения</div>*/}
+                    {/*  <div className="value">100 дней</div>*/}
+                    {/*</div>*/}
 
-                    <MainButton
-                      func={() => window.open('https://www.mira.fund')}
-                      text={'Оформить программу'}
-                      type={'lg'}
-                      media={
-                        `
-                        @media (max-width: 575px) {
-                          width: 100%;
-                          text-align: center;
-                        }
-                      `
-                      }
-                    />
+                    {/*<MainButton*/}
+                    {/*  func={() => window.open('https://www.mira.fund')}*/}
+                    {/*  text={'Оформить программу'}*/}
+                    {/*  type={'lg'}*/}
+                    {/*  media={*/}
+                    {/*    `*/}
+                    {/*    @media (max-width: 575px) {*/}
+                    {/*      width: 100%;*/}
+                    {/*      text-align: center;*/}
+                    {/*    }*/}
+                    {/*  `*/}
+                    {/*  }*/}
+                    {/*/>*/}
                   </div>
                 </div>
               </Col>
@@ -240,18 +190,18 @@ const HomePage = () => {
                     }}
                   />
 
-                  <p className="desc">{'Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете приобрести квартиру/дом своей мечты за 35% от цены в течение всего 100 дней.'}</p>
+                  <p className="desc">{'Компания MIRA предлагает квартирную программу MIRA Estate, по которой вы сможете приобрести квартиру/дом своей мечты за 35% от цены.'}</p>
 
                   <div className="info info-start">
-                    <div className="info-item">
-                      <div className="name">Первый взнос</div>
-                      <div className="value">от 30%</div>
-                    </div>
+                    {/*<div className="info-item">*/}
+                    {/*  <div className="name">Первый взнос</div>*/}
+                    {/*  <div className="value">от 30%</div>*/}
+                    {/*</div>*/}
 
-                    <div className="info-item">
-                      <div className="name">Срок получения</div>
-                      <div className="value">100 дней</div>
-                    </div>
+                    {/*<div className="info-item">*/}
+                    {/*  <div className="name">Срок получения</div>*/}
+                    {/*  <div className="value">100 дней</div>*/}
+                    {/*</div>*/}
                   </div>
                 </div>
               </Col>

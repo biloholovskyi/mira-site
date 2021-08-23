@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 
 import Logo from "../logo/logo";
 import ButtonsBlock from "./buttonsBlock/buttonsBlock";
-import Menu from "./menu/menu";
-import MobileBlock from "./mobileBlock/mobileBlock";
 
 import * as Style from './styled'
 
@@ -27,9 +25,8 @@ const Header = () => {
 
   return (
     <Style.HeaderWrapper fixedHeader={header}>
-      <MobileBlock/>
       <Logo/>
-      {/*<Menu fixedHeader={header}/>*/}
+      <button className="enter-mobile" onClick={() => window.open('https://www.mira.fund')}>Войти</button>
       <ButtonsBlock/>
     </Style.HeaderWrapper>
   )

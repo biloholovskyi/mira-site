@@ -153,11 +153,11 @@ const TextAndImage = styled.div`
 
     &-small {
       position: absolute;
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
-      right: 95px;
-      top: 100px;
+      right: 77px;
+      top: 72px;
       z-index: 2;
       visibility: hidden;
 
