@@ -90,7 +90,7 @@ const DotWrapper = styled.div`
     &--top {
       .dotText {
         top: -16px;
-        margin-top: -74px;
+        margin-top: -110px;
         left: 50%;
         margin-left: -100px;
       }
@@ -100,7 +100,7 @@ const DotWrapper = styled.div`
   & .dot:nth-child(2n){
     .dotText {
       top: -16px;
-      margin-top: -74px;
+      margin-top: -110px;
       left: 50%;
       margin-left: -100px;
     }

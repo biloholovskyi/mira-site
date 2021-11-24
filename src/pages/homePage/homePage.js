@@ -18,6 +18,8 @@ import autoFon3 from './media/image-phone2.png'
 import estate from './media/image-estate.png'
 import estate2 from './media/image-estate2.png'
 import estate3 from './media/image-estate-small.png'
+import marketImg from './media/market.png'
+import universityImg from './media/university.png'
 
 const HomePage = () => {
   const listenScrollEvent = (event) => {
@@ -113,6 +115,114 @@ const HomePage = () => {
           </Container>
         </Style.TextAndImage>
         {/* mira deposit */}
+
+        {/* mira univer */}
+        <Style.TextAndImage className={'content-block'}>
+          <Container className={'no-relative'}>
+            <Row className={'no-relative'}>
+              <Col lg={6}>
+                <div className="text">
+
+                  <DefaultTitle
+                    text='Mira university'
+                    style={{
+                      marginBottom: '40px'
+                    }}
+                  />
+
+                  <p className="desc">MIRA University  - университет будущего. Это больше, чем онлайн образование, это актуальные знания, применимые как в жизни, так и в работе.
+                    Занятия происходят в дуальной форме, где теория неотделима от практики. Благодаря этому, вы сможете окупить стоимость курса ещё во время обучения.
+                    <br/><br/>Программа «Профессия - ТРЕЙДЕР» уже была опробована на фокус-группах и зарекомендовала себя как сильная, конкурентоспособная база для дальнейшей работы на бирже.
+                  </p>
+
+
+
+                  <div className="info">
+                    <div className="info-item">
+                      <div className="name">Стоимость курса</div>
+                      <div className="value">от $70</div>
+                    </div>
+
+
+                    <MainButton
+                      func={() => window.open('https://mira.school/kurs')}
+                      text={'Хочу стать трейдером!'}
+                      type={'lg'}
+                      media={
+                        `
+                        @media (max-width: 575px) {
+                          width: 100%;
+                          text-align: center;
+                        }
+                      `
+                      }
+                    />
+                  </div>
+                </div>
+              </Col>
+              <Col lg={6} className={'no-relative'}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={universityImg} alt="image" className="university-img" id={'first'}/>
+              </Col>
+            </Row>
+          </Container>
+        </Style.TextAndImage>
+        {/* mira univer */}
+
+        {/* mira market */}
+        <Style.TextAndImage className={'content-block'}>
+          <Container>
+            <Row>
+              <Col lg={6} className={'relative'}>
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                <img src={marketImg} alt="image" className="full-img" id={'first'}/>
+              </Col>
+              <Col lg={6}>
+                <div className="text">
+
+                  <DefaultTitle
+                    text='Mira market'
+                    style={{
+                      marginBottom: '40px'
+                    }}
+                  />
+
+                  <p className="desc">Внутренняя платформа MIRA, на которой партнёры компании могут покупать различные товары и услуги за внутреннюю валюту MIRA.
+                    <br/><br/>Основная цель MIRA Marketplace - обеспечить качественными товарами популярных брендов и марок членов финансовой экосистемы MIRA.</p>
+
+
+
+                  <div className="info">
+                    <div className="info-item">
+                      <div className="name">Первый взнос</div>
+                      <div className="value">от 35%</div>
+                    </div>
+
+                    <div className="info-item">
+                      <div className="name">Срок получения</div>
+                      <div className="value">от 100 дней</div>
+                    </div>
+
+                    <MainButton
+                      func={() => window.open('https://mira.school/kurs')}
+                      text={'Оформить программу'}
+                      type={'lg'}
+                      media={
+                        `
+                        @media (max-width: 575px) {
+                          width: 100%;
+                          text-align: center;
+                        }
+                      `
+                      }
+                    />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </Style.TextAndImage>
+        {/* mira market */}
 
         {/* mira auto */}
         <Style.TextAndImage bg={'#212121'}>

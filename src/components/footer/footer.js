@@ -25,19 +25,19 @@ const Footer = () => {
   const [window, setWindow] = useState(0);
 
   const getDocuments = async () => {
-    axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-    axios.defaults.xsrfCookieName = 'csrftoken';
-
-    const server = new ServerSettings();
-
-    await axios.get(`${server.getApi()}api/documents/`)
-      .then(res => {
-        setDocument(res.data)
-      }).catch(error => console.error(error))
+    // axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+    // axios.defaults.xsrfCookieName = 'csrftoken';
+    //
+    // const server = new ServerSettings();
+    //
+    // await axios.get(`${server.getApi()}api/documents/`)
+    //   .then(res => {
+    //     setDocument(res.data)
+    //   }).catch(error => console.error(error))
   }
 
   useEffect(() => {
-    getDocuments().catch(error => console.error(error));
+    // getDocuments().catch(error => console.error(error));
   }, [])
 
   // получаем ширину картинки
@@ -98,13 +98,15 @@ const Footer = () => {
               <div className="copyright">
                 <div className="name">Copyright © 2021 MIRA</div>
                 <div className="link">
-                  {
-                    document.map((i ,k) => {
-                      return (
-                        <a key={k} href={i.file}>{i.name}</a>
-                      )
-                    })
-                  }
+                  {/*{*/}
+                  {/*  document.map((i ,k) => {*/}
+                  {/*    return (*/}
+                  {/*      <a key={k} href={i.file}>{i.name}</a>*/}
+                  {/*    )*/}
+                  {/*  })*/}
+                  {/*}*/}
+                  <a target={'_blank'} href={'https://mira.fund/user_agreement_MIRA.pdf'}>Пользовательское соглашение</a>
+                  <a target={'_blank'} href={'https://mira.fund/privacy_policy_MIRA.pdf'}>Политика конфиденциальности</a>
                 </div>
               </div>
 

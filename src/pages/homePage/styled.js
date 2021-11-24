@@ -14,6 +14,15 @@ const TextAndImage = styled.div`
   background-color: #121212;
 
   ${props => props.bg && {backgroundColor: props.bg}}
+  
+  .relative {
+    position: relative;
+  }
+  
+  .no-relative {
+    position: static;
+  }
+  
   .text {
     padding: 120px 0;
 
@@ -135,7 +144,35 @@ const TextAndImage = styled.div`
       }
     }
   }
+  
+  .university-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+    object-position: center right;
+    object-fit: cover;
+    
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
 
+  .full-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+  
   .image {
     height: 100%;
     object-position: center;
