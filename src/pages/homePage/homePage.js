@@ -92,7 +92,7 @@ const HomePage = () => {
                     </div>
 
                     <MainButton
-                      func={() => window.open('https://www.mira.fund')}
+                      func={() => window.open('https://www.mira.fund/signup')}
                       text={'Оформить программу'}
                       type={'lg'}
                       media={
@@ -116,12 +116,12 @@ const HomePage = () => {
         </Style.TextAndImage>
         {/* mira deposit */}
 
-        {/* mira univer */}
+        {/* mira university */}
         <Style.TextAndImage className={'content-block'}>
           <Container className={'no-relative'}>
             <Row className={'no-relative'}>
-              <Col lg={6}>
-                <div className="text">
+              <div className={'col-lg-6 col-12 order-2 order-lg-1'}>
+                <div className="text text-z">
 
                   <DefaultTitle
                     text='Mira university'
@@ -159,15 +159,15 @@ const HomePage = () => {
                     />
                   </div>
                 </div>
-              </Col>
-              <Col lg={6} className={'no-relative'}>
+              </div>
+              <div className={'col-lg-6 col-12 order-1 order-lg-2 no-relative'} >
                 {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img src={universityImg} alt="image" className="university-img" id={'first'}/>
-              </Col>
+              </div>
             </Row>
           </Container>
         </Style.TextAndImage>
-        {/* mira univer */}
+        {/* mira university */}
 
         {/* mira market */}
         <Style.TextAndImage className={'content-block'}>
@@ -204,7 +204,7 @@ const HomePage = () => {
                     </div>
 
                     <MainButton
-                      func={() => window.open('https://mira.school/kurs')}
+                      func={() => window.open('https://mira.fund/signup')}
                       text={'Оформить программу'}
                       type={'lg'}
                       media={

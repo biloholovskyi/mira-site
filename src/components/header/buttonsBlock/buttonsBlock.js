@@ -8,7 +8,7 @@ const ButtonsBlock = () => {
   return (
     <Style.Wrapper>
       <button className="enter" onClick={() => window.open('https://www.mira.fund')}>Войти</button>
-      <MainButton func={() => window.open('https://www.mira.fund')} text={'Зарегистрироваться'}/>
+      <MainButton func={() => window.open('https://mira.fund/signup')} text={'Зарегистрироваться'}/>
     </Style.Wrapper>
   )
 }

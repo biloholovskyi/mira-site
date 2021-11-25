@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <Style.HeaderWrapper fixedHeader={header}>
       <Logo/>
-      <button className="enter-mobile" onClick={() => window.open('https://www.mira.fund')}>Войти</button>
+      <button className="enter-mobile" onClick={() => window.open('https://mira.fund/signup')}>Войти</button>
       <ButtonsBlock/>
     </Style.HeaderWrapper>
   )

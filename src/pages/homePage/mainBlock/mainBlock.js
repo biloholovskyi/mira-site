@@ -30,7 +30,7 @@ const MainBlock = ({mainContent}) => {
             <Style.Title>Дарим финансовую независимость каждому</Style.Title>
             <Style.ButtonsBlock>
               <MainButton
-                func={() => window.open('https://www.mira.fund')}
+                func={() => window.open('https://www.mira.fund/signup')}
                 text={'Зарегистрироваться'}
                 type={'lg'}
                 media={

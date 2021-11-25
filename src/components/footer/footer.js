@@ -78,19 +78,20 @@ const Footer = () => {
               </Style.FooterNavWrapper>
               <Style.FooterRightBlock>
                 <h3>Начните зарабатывать вместе с Mira</h3>
-                <MainButton
-                  func={() => window.open('https://www.mira.fund')}
-                  text={'Зарегистрироваться'}
-                  type={'lg'}
-                  media={
-                    `
+                <a href={'https://mira.fund/signup'} target={'_blank'} style={{textDecoration: 'none'}}>
+                  <MainButton
+                    text={'Зарегистрироваться'}
+                    type={'lg'}
+                    media={
+                      `
                       @media (max-width: 575px) {
                         width: 100%;
                         text-align: center;
                       }
                     `
-                  }
-                />
+                    }
+                  />
+                </a>
               </Style.FooterRightBlock>
             </Style.FooterInfo>
 

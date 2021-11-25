@@ -23,6 +23,11 @@ const TextAndImage = styled.div`
     position: static;
   }
   
+  .text-z {
+    z-index: 5;
+    position: relative;
+  }
+  
   .text {
     padding: 120px 0;
 
@@ -156,7 +161,8 @@ const TextAndImage = styled.div`
     object-fit: cover;
     
     @media (max-width: 991px) {
-      display: none;
+      display: block;
+      position: relative;
     }
   }
 
@@ -168,8 +174,11 @@ const TextAndImage = styled.div`
     height: 100%;
     object-position: center;
     object-fit: cover;
+    
     @media (max-width: 991px) {
-      display: none;
+      display: block;
+      width: 100%;
+      position: relative;
     }
   }
   
